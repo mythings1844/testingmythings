@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneakers and More</title>
+    <link rel="icon" href="Imagenes/favicon/favicon3.ico" type="image/png">
+    
+    <!-- Fuente moderna desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos Generales / Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fondo general gris claro */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #dcdcdc; 
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Encabezado y Título gris oscuro */
+        header {
+            width: 100%;
+            background-color: #535353;
+            padding: 2.5rem 1rem 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: #ffffff;
+        }
+
+        /* Menú de Navegación */
+        nav {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem 0 2.5rem 0;
+            padding: 0 1rem;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            list-style: none;
+            background: #ffffff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
+            border: 1px solid #c8c8c8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .menu a {
+            color: #334155;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+        }
+
+        /* Efecto al pasar el ratón por los enlaces */
+        .menu a:hover {
+            color: #ffffff;
+            background-color: #535353;
+        }
+
+        .separator {
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        /* Contenedor Principal e Imagen */
+        main {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 1rem 3rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            max-width: 650px;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+            border: 1px solid #c8c8c8;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-image-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.18);
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .divider {
+            width: 100%;
+            max-width: 650px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.15), transparent);
+            margin-top: 3rem;
+        }
+
+        /* Adaptación a móviles */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .menu {
+                border-radius: 16px;
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 0.75rem;
+            }
+            .separator {
+                display: none;
+            }
+            .menu a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>📍 Sneakers and More</h1>
+    </header>
+
+    <!-- Navegación -->
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">🏠 Home</a></li>
+            <span class="separator">/</span>
+            <li><a href="Store.html">📌 My Own Collection</a></li>
+            <span class="separator">/</span>
+            <li><a href="Sold.html">🏷️ For Sale</a></li>
+            <span class="separator">/</span>
+            <li><a href="Others.html">Others</a></li>
+            <span class="separator">/</span>
+            <li><a href="website_homepage.htm">Wish list</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main>
+        <div class="hero-image-container">
+            <img src="Imagenes/Background/sns.jpg" alt="Sneakers Collection Logo">
+        </div>
+        <div class="divider"></div>
+    </main>
+
+</body>
+</html>
