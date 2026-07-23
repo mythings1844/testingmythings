@@ -588,3 +588,145 @@ footer {
 .modal-close:hover {
     color: #6366f1;
 }
+
+/* ==========================================
+   TARJETA ESTILO MODERNO (RELOJES/COLECCIÓN)
+   ========================================== */
+
+.watch-card {
+    position: relative;
+    padding: 1.25rem;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+/* Botón Corazón Favorito */
+.favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    z-index: 5;
+}
+
+.favorite-btn:hover {
+    color: #ef4444;
+    background-color: #f1f5f9;
+}
+
+/* Marca en Tag / Píldora */
+.brand-badge {
+    display: inline-block;
+    background-color: #f3e8ff;
+    color: #7e22ce;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+}
+
+/* Título */
+.watch-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.85rem;
+}
+
+/* Lista con Iconos */
+.watch-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    width: 100%;
+}
+
+.watch-specs li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    margin-bottom: 0.45rem;
+}
+
+.spec-label {
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.spec-label svg {
+    stroke: #94a3b8;
+}
+
+.spec-value {
+    color: #1e293b;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+/* Footer de la Tarjeta */
+.watch-card-footer {
+    width: 100%;
+    padding-top: 0.85rem;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.footer-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-meta.text-right {
+    text-align: right;
+}
+
+.meta-label {
+    font-size: 0.68rem;
+    color: #94a3b8;
+    margin-bottom: 2px;
+}
+
+.meta-price {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #6366f1; /* Morado/Azul destacado */
+}
+
+.meta-date {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Botón Menú 3 Puntos */
+.menu-btn {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    border-radius: 10px;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.menu-btn:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+    color: #1e293b;
+}
