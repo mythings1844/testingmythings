@@ -34,13 +34,13 @@
         header {
             width: 100%;
             background-color: #535353;
-            padding: 2.5rem 1rem 2rem 1rem;
+            padding: 2.5rem 1rem 1.5rem 1rem;
             text-align: center;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: -0.05em;
             color: #ffffff;
@@ -89,17 +89,6 @@
             user-select: none;
         }
 
-        /* Efecto al pasar el ratón por los enlaces */
-        .menu a:hover {
-            color: #ffffff;
-            background-color: #535353;
-        }
-
-        .separator {
-            color: #94a3b8;
-            font-size: 0.8rem;
-        }
-
         /* Contenedor Principal e Imagen */
         main {
             width: 100%;
@@ -141,22 +130,30 @@
             margin-top: 3rem;
         }
 
-        /* Adaptación a móviles */
+        /* Adaptación a móviles (idéntica a las demás hojas) */
         @media (max-width: 640px) {
             h1 {
                 font-size: 1.8rem;
             }
+
             .menu {
                 border-radius: 16px;
                 flex-direction: column;
                 gap: 0.25rem;
                 padding: 0.75rem;
             }
+
             .separator {
                 display: none;
             }
+
+            .menu li {
+                width: 100%;
+            }
+
             .menu a {
                 width: 100%;
+                display: block;
                 text-align: center;
             }
         }
@@ -170,17 +167,17 @@
         <h1>📍 Sneakers and More</h1>
     </header>
 
-    <!-- Navegación -->
+    <!-- Navegación corregida con etiquetas <li> idénticas a las demás hojas -->
     <nav>
         <ul class="menu">
-            <li><a href="index.html">🏠 Home</a></li>
-            <span class="separator">/</span>
-            <li><a href="Store.html">📌 My Own Collection</a></li>
-            <span class="separator">/</span>
+            <li><a href="index.html" class="active">🏠 Home</a></li>
+            <li class="separator">/</li>
+            <li><a href="Store.html">📌 Sneakers Collection</a></li>
+            <li class="separator">/</li>
             <li><a href="Sold.html">🏷️ For Sale</a></li>
-            <span class="separator">/</span>
+            <li class="separator">/</li>
             <li><a href="Others.html">Others</a></li>
-            <span class="separator">/</span>
+            <li class="separator">/</li>
             <li><a href="website_homepage.htm">Wish list</a></li>
         </ul>
     </nav>
