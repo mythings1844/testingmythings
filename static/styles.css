@@ -189,7 +189,14 @@ nav {
 }
 
 .badge-return {
-    background-color: #84cc16;
+    background-color: #000000; /* Fondo negro */
+    color: #ffffff;             /* Texto blanco */
+    border: 1px solid #ffffff;  /* Borde blanco sutil para darle definición */
+}
+
+.badge-dead {
+    background-color: #991b1b; /* Rojo medio oscuro (Granate / Red-800) */
+    color: #ffffff;             /* Texto blanco */
 }
 
 .sneaker-card img {

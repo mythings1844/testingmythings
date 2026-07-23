@@ -157,6 +157,47 @@
                 text-align: center;
             }
         }
+        /* Estilos para las tarjetas de resumen (Dashboard Stats) */
+        .stats-container {
+            width: 100%;
+            max-width: 650px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            background-color: #ffffff;
+            border: 1px solid #c8c8c8;
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-color: #535353;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+        }
     </style>
 </head>
 
@@ -184,6 +225,26 @@
 
     <!-- Contenido Principal -->
     <main>
+        <!-- Tarjetas Resumen / Estadísticas -->
+        <div class="stats-container">
+            <a href="Store.html" class="stat-card">
+                <div class="stat-number">45</div>
+                <div class="stat-label">📌 Sneakers</div>
+            </a>
+            <a href="Sold.html" class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">🏷️ For Sale</div>
+            </a>
+            <a href="Others.html" class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">🧢 Others</div>
+            </a>
+            <a href="website_homepage.htm" class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">⭐ Wish List</div>
+            </a>
+        </div>
+        <div class="divider"></div>        
         <div class="hero-image-container">
             <img src="Imagenes/Background/sns.jpg" alt="Sneakers Collection Logo">
         </div>
