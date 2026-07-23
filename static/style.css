@@ -1,0 +1,590 @@
+/* ==========================================
+   1. RESET Y ESTILOS GLOBALES (ESTILO ANTIGUO)
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #F4F5F7; /* Fondo gris original */
+    color: #1e293b;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   2. HEADER Y MENÚ DE NAVEGACIÓN BASE
+   ========================================== */
+header {
+    width: 100%;
+    background-color: #222222;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    color: #ffffff;
+}
+
+header p {
+    color: #bbb;
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+}
+
+nav {
+    width: 100%;
+    background: #ffffff;
+    padding: 14px 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #444444;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+nav a:hover, 
+nav a.active {
+    background: #6366f1;
+    color: #ffffff;
+}
+
+/* ==========================================
+   3. BUSCADOR Y CONTENEDOR PRINCIPAL
+   ========================================== */
+.search-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 1.5rem 0 1rem 0;
+    padding: 0 1rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    border-radius: 9999px;
+    border: 1px solid #c8c8c8;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+/* Contenedor principal con los márgenes originales */
+.container,
+.collection-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 1.5rem 1rem;
+}
+
+/* Títulos de Categoría */
+.category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #b0b0b0;
+    padding-bottom: 0.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-header:first-of-type {
+    margin-top: 0.5rem;
+}
+
+.category-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.category-count {
+    background-color: #535353;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+}
+
+/* ==========================================
+   4. GRID AJUSTADO (MÁXIMO 5 POR FILA)
+   ========================================== */
+.sneakers-grid {
+    display: grid;
+    /* 200px minmax en contenedor de 1200px limita a máximo 5 elementos por fila */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* Tarjetas de zapatillas */
+.sneaker-card {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #c8c8c8;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.sneaker-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px -4px rgba(0, 0, 0, 0.15);
+}
+
+/* Badges / Ribbons */
+.badge {
+    position: absolute;
+    top: 10px;
+    right: -28px;
+    transform: rotate(45deg);
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 3px 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.badge-sold {
+    background-color: #84cc16;
+}
+
+.badge-return {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.badge-dead {
+    background-color: #991b1b;
+    color: #ffffff;
+}
+
+.sneaker-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.sneaker-card:hover img {
+    transform: scale(1.04);
+}
+
+.sneaker-info {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    width: 100%;
+}
+
+.model-name {
+    color: #475569;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.sku {
+    color: #64748b;
+    font-size: 0.75rem;
+    font-family: monospace;
+    margin: 0.2rem 0;
+}
+
+.colorway {
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 0.4rem;
+    display: block;
+}
+
+/* ==========================================
+   5. COMPONENTES DEL DASHBOARD (INDEX)
+   ========================================== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: #ffffff;
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    border: 1px solid #c8c8c8;
+    border-top: 4px solid #6366f1;
+    text-align: center;
+}
+
+.num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.lbl {
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.section {
+    margin-top: 2rem;
+}
+
+.section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+}
+
+.tile {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #c8c8c8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px -4px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+    font-size: 2.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.activity {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #c8c8c8;
+    padding: 1.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.activity li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.activity li:last-child {
+    border-bottom: none;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background-color: #F4F5F7; /* Mismo color de fondo */
+    margin-top: auto; /* Garantiza que siempre esté en el fondo */
+
+    /* Línea divisoria superior fina con efecto de sombra difuminada */
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05); 
+}
+
+/* ==========================================
+   6. RESPONSIVO MÓVIL
+   ========================================== */
+@media (max-width: 640px) {
+    header h1 { 
+        font-size: 1.8rem; 
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 10px;
+    }
+
+    nav a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .sneakers-grid,
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 0.8rem;
+    }
+
+    .category-header {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Contenedor principal de la sección/categoría */
+.category-section {
+    background-color: #E5E7EB;          /* Fondo muy claro ligeramente purpúreo/azulado */
+    border: 1.5px solid #E5E7EB;         /* Borde sutil del color deseado */
+    border-radius: 16px;                 /* Esquinas redondeadas */
+    padding: 20px;                      /* Espacio interior para que respiren las tarjetas */
+    box-shadow: 0 8px 24px rgba(168, 178, 255, 0.15); /* Sombra suave para darle elevación */
+    margin-bottom: 30px;                 /* Separación respecto a la siguiente sección */
+}
+
+/* Contenedor del encabezado */
+.category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid transparent;
+    /* Línea divisoria con degradado sutil en vez de borde plano */
+    border-image: linear-gradient(to right, #8b5cf6, #c084fc, rgba(200, 200, 255, 0.1)) 1;
+}
+
+/* Título de la categoría */
+.category-title {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 1.25rem;       /* 20px */
+    font-weight: 700;
+    color: #1e1b4b;           /* Azul/Morado muy oscuro en vez de negro duro */
+    letter-spacing: -0.02em;  /* Aprieta ligeramente las letras para un toque pro */
+    margin: 0;
+}
+
+/* Contador (Badge con la cantidad "12") */
+.category-count {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); /* Degradado moderno */
+    color: #ffffff;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;       /* Píldora redondeada */
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3); /* Sombra de neón suave */
+}
+
+/* ==========================================
+   ESTILOS EXCLUSIVOS PARA RELOJES (WATCHES)
+   ========================================== */
+
+/* Rejilla de tarjetas más anchas (máximo 4 por fila) */
+.watches-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+    gap: 1.5rem !important;
+}
+
+/* Tarjeta de reloj más espaciosa */
+.watches-grid .sneaker-card {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+}
+
+/* Altura mayor para apreciar los detalles del reloj */
+.watches-grid .sneaker-card img {
+    height: 200px !important; /* Pasa de 110px a 200px */
+    margin-bottom: 1rem;
+}
+
+/* Zoom suave en la imagen al pasar el cursor */
+.watches-grid .sneaker-card:hover img {
+    transform: scale(1.08);
+}
+
+/* 1. Reducir el margen inferior de la imagen */
+.sneaker-card img {
+    margin-bottom: 0.25rem !important; /* Antes solía ser 1rem o más */
+}
+
+/* 2. Ajustar los márgenes del divisor */
+.card-divider {
+    border: none;
+    height: 1px;
+    background-color: #cbd5e1;
+    width: 45%;
+    margin-top: 0.25rem !important;    /* Reducimos el espacio superior con la foto */
+    margin-bottom: 0.75rem !important; /* Espacio cómodo antes del título */
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.7;
+}
+/* Ajuste de contenedor del texto */
+.sneaker-info {
+    width: 100%;
+}
+
+/* ==========================================
+   ESPECÍFICO PARA RELOJES (WATCHES)
+   ========================================== */
+
+/* Título centrado */
+.watches-grid .sneaker-info .model-name {
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+}
+
+/* Lista centrada y SIN bullet points */
+.watches-grid .watch-specs-list {
+    list-style: none;          /* 👈 Elimina los puntos/viñetas */
+    padding-left: 0;           /* Elimina el margen izquierdo de las listas */
+    margin: 0;
+    text-align: center;        /* 👈 Centra todo el texto */
+}
+
+.watches-grid .watch-specs-list li {
+    font-size: 0.75rem;
+    font-family: monospace;     /* Estilo técnico elegante */
+    color: #475569;
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
+    text-align: center;        /* Asegura el centrado en cada línea */
+}
+
+.watches-grid .watch-specs-list strong {
+    color: #1e293b;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+.sneaker-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.sneaker-card img {
+    height: 110px;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* El divisor se coloca con posición fija relativa al fondo */
+.card-divider {
+    border: none;
+    height: 1px;
+    background-color: #cbd5e1;
+    width: 45%;
+    margin: 0.5rem auto;
+    opacity: 0.7;
+}
+
+/* Bloque de texto con altura mínima garantizada */
+.sneaker-info {
+    width: 100%;
+    margin-top: auto;
+    min-height: 85px; /* Define el espacio fijo para textos largos/cortos */
+}
+/* ==========================================
+   MODAL PARA AMPLIAR IMÁGENES (LIGHTBOX)
+   ========================================== */
+.sneaker-card img {
+    cursor: pointer; /* Cambia el cursor a una manito para indicar clic */
+}
+
+.image-modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(5px);            /* Desenfoque de fondo */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    max-width: 85%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.image-modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: #6366f1;
+}

@@ -3,253 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sneakers and More</title>
-    <link rel="icon" href="Imagenes/favicon/favicon3.ico" type="image/png">
-    
-    <!-- Fuente moderna desde Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Collecto - Dashboard</title>
+
+    <!-- Fuentes de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-    <style>
-        /* Estilos Generales / Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Fondo general gris claro */
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #dcdcdc; 
-            color: #1e293b;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Encabezado y Título gris oscuro */
-        header {
-            width: 100%;
-            background-color: #535353;
-            padding: 2.5rem 1rem 1.5rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            color: #ffffff;
-        }
-
-        /* Menú de Navegación */
-        nav {
-            width: 100%;
-            max-width: 900px;
-            margin: 1.5rem 0 1rem 0;
-            padding: 0 1rem;
-        }
-
-        .menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            list-style: none;
-            background: #ffffff;
-            padding: 0.6rem 1.2rem;
-            border-radius: 9999px;
-            border: 1px solid #c8c8c8;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .menu a {
-            color: #334155;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            transition: all 0.2s ease;
-        }
-
-        .menu a:hover, .menu a.active {
-            color: #ffffff;
-            background-color: #535353;
-        }
-
-        .separator {
-            color: #94a3b8;
-            font-size: 0.8rem;
-            user-select: none;
-        }
-
-        /* Contenedor Principal e Imagen */
-        main {
-            width: 100%;
-            max-width: 800px;
-            padding: 0 1rem 3rem 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero-image-container {
-            width: 100%;
-            max-width: 650px;
-            border-radius: 16px;
-            overflow: hidden;
-            background-color: #ffffff;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
-            border: 1px solid #c8c8c8;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hero-image-container:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.18);
-        }
-
-        .hero-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        .divider {
-            width: 100%;
-            max-width: 650px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.15), transparent);
-            margin-top: 3rem;
-        }
-
-        /* Adaptación a móviles (idéntica a las demás hojas) */
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .menu {
-                border-radius: 16px;
-                flex-direction: column;
-                gap: 0.25rem;
-                padding: 0.75rem;
-            }
-
-            .separator {
-                display: none;
-            }
-
-            .menu li {
-                width: 100%;
-            }
-
-            .menu a {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-        }
-        /* Estilos para las tarjetas de resumen (Dashboard Stats) */
-        .stats-container {
-            width: 100%;
-            max-width: 650px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .stat-card {
-            background-color: #ffffff;
-            border: 1px solid #c8c8c8;
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            border-color: #535353;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #1e293b;
-            margin-bottom: 0.2rem;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #475569;
-        }
-    </style>
+    
+    <!-- Hoja de estilos centralizada -->
+    <link rel="stylesheet" href="static\style.css">
 </head>
-
 <body>
 
-    <!-- Encabezado -->
+    <!-- Encabezado Base -->
     <header>
-        <h1>📍 Sneakers and More</h1>
+        <h1>📦 Collecto</h1>
+        <p>Everything you collect, in one place.</p>
     </header>
 
-    <!-- Navegación corregida con etiquetas <li> idénticas a las demás hojas -->
+    <!-- Menú de Navegación Base -->
     <nav>
-        <ul class="menu">
-            <li><a href="index.html" class="active">🏠 Home</a></li>
-            <li class="separator">/</li>
-            <li><a href="Store.html">📌 Sneakers Collection</a></li>
-            <li class="separator">/</li>
-            <li><a href="Sold.html">🏷️ For Sale</a></li>
-            <li class="separator">/</li>
-            <li><a href="Others.html">Others</a></li>
-            <li class="separator">/</li>
-            <li><a href="website_homepage.htm">Wish list</a></li>
-        </ul>
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="templates/sneakers.html">Sneakers</a>
+        <a href="templates/watches.html">Watches</a>
+        <a href="Others.html">Caps</a>
+        <a href="#">Others</a>
     </nav>
 
-    <!-- Contenido Principal -->
-    <main>
-        <!-- Tarjetas Resumen / Estadísticas -->
-        <div class="stats-container">
-            <a href="Store.html" class="stat-card">
-                <div class="stat-number">45</div>
-                <div class="stat-label">📌 Sneakers</div>
-            </a>
-            <a href="Sold.html" class="stat-card">
-                <div class="stat-number">12</div>
-                <div class="stat-label">🏷️ For Sale</div>
-            </a>
-            <a href="Others.html" class="stat-card">
-                <div class="stat-number">8</div>
-                <div class="stat-label">🧢 Others</div>
-            </a>
-            <a href="website_homepage.htm" class="stat-card">
-                <div class="stat-number">5</div>
-                <div class="stat-label">⭐ Wish List</div>
-            </a>
+    <!-- Contenido Principal de esta página -->
+    <div class="container">
+        <div class="stats"></div>
+
+        <div class="section">
+            <h2>Categorías</h2><br>
+
+            <div class="grid">
+                <div class="tile">
+                    <div class="icon">👟</div>
+                    <h3>Sneakers</h3>
+                    <p>26 Items</p>
+                </div>
+
+                <div class="tile">
+                    <div class="icon">⌚</div>
+                    <h3>Watches</h3>
+                    <p>9 Items</p>
+                </div>
+
+                <div class="tile">
+                    <div class="icon">🧢</div>
+                    <h3>Caps</h3>
+                    <p>18 Items</p>
+                </div>
+
+                <div class="tile">
+                    <div class="icon">🕶️</div>
+                    <h3>Accessories</h3>
+                    <p>15 Items</p>
+                </div>
+            </div>
         </div>
-        <div class="divider"></div>        
-        <div class="hero-image-container">
-            <img src="Imagenes/Background/sns.jpg" alt="Sneakers Collection Logo">
-        </div>
-        <div class="divider"></div>
-    </main>
+    </div>
+
+    <!-- Pie de página Base -->
+    <footer>Collecto © 2026</footer>
 
 </body>
 </html>

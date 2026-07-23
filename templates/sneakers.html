@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sneakers Collection</title>
-    <link rel="shortcut icon" type="image/x-icon" href="Imagenes/favicon/favicon3.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../imagenes/favicon/favicon3.ico">
     
     <!-- Fuente moderna Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,60 +12,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Vincula tu nuevo archivo de estilos -->
-    <link rel="stylesheet" href="static\styles.css">
+    <link rel="stylesheet" href="../static/style.css">
 
 </head>
 <body>
 
-    <!-- Encabezado -->
+    <!-- Encabezado Base -->
     <header>
-        <h1>📌 Sneakers Collection</h1>
+        <h1>📦 Collecto</h1>
+        <p>Everything you collect, in one place.</p>
     </header>
 
-    <!-- Navegación Principal -->
+    <!-- Menú de Navegación Base -->
     <nav>
-        <ul class="menu">
-            <li><a href="index.html">🏠 Home</a></li>
-            <li class="separator">/</li>
-            <li><a href="Store.html" class="active">📌 My Own Collection</a></li>
-            <li class="separator">/</li>
-            <li><a href="Sold.html">🏷️ For Sale</a></li>
-            <li class="separator">/</li>
-            <li><a href="Others.html">Others</a></li>
-            <li class="separator">/</li>
-            <li><a href="website_homepage.htm">Wish list</a></li>
-        </ul>
+        <a href="../index.html">Dashboard</a>
+        <a href="sneakers.html" class="active">Sneakers</a>
+        <a href="watches.html">Watches</a>
+        <a href="Others.html">Caps</a>
+        <a href="#">Others</a>
     </nav>
 
-    <!-- Resumen de Estadísticas (Con el mismo margen arriba y abajo) -->
-    <div class="stats-container" style="width: 100%; max-width: 900px; margin: 1rem auto; padding: 0 1rem;">
-        <div style="display: flex; gap: 0.75rem; justify-content: space-between; width: 100%;">
-            
-            <!-- STOCK -->
-            <div style="background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08); flex: 1; min-width: 0;">
-                <div id="stockCount" style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
-                <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; white-space: nowrap;">📦 STOCK</div>
-            </div>
-
-            <!-- SOLD -->
-            <div style="background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08); flex: 1; min-width: 0;">
-                <div id="soldCount" style="font-size: 1.8rem; font-weight: 800; color: #84cc16; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
-                <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; white-space: nowrap;">🏷️ SOLD</div>
-            </div>
-
-            <!-- RETURN -->
-            <div style="background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08); flex: 1; min-width: 0;">
-                <div id="returnCount" style="font-size: 1.8rem; font-weight: 800; color: #000000; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
-                <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; white-space: nowrap;">↩️ RETURN</div>
-            </div>
-
-            <!-- DEAD -->
-            <div style="background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08); flex: 1; min-width: 0;">
-                <div id="deadCount" style="font-size: 1.8rem; font-weight: 800; color: #991b1b; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
-                <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; white-space: nowrap;">💀 DEAD</div>
-            </div>
-
+    <!-- Resumen de Estadísticas (Ordenado en Grid de 2 columnas en móviles como el Index) -->
+    <div class="stats-container" style="width: 100%; max-width: 900px; margin: 1rem auto; padding: 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;">
+        
+        <!-- STOCK -->
+        <div style="background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+            <div id="stockCount" style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">📦 STOCK</div>
         </div>
+
+        <!-- TARJETA SOLD -->
+        <div style="position: relative; overflow: hidden; background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+            <span class="badge badge-sold">SOLD</span>
+            <div id="soldCount" style="font-size: 1.8rem; font-weight: 800; color: #84cc16; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">🏷️ SOLD</div>
+        </div>
+
+        <!-- TARJETA RETURN -->
+        <div style="position: relative; overflow: hidden; background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+            <span class="badge badge-return">RETURN</span>
+            <div id="returnCount" style="font-size: 1.8rem; font-weight: 800; color: #000000; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">↩️ RETURN</div>
+        </div>
+        <!-- TARJETA DEAD -->
+        <div style="position: relative; overflow: hidden; background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+            <span class="badge badge-dead">DEAD</span>
+            <div id="deadCount" style="font-size: 1.8rem; font-weight: 800; color: #991b1b; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">💀 DEAD</div>
+        </div>
+
     </div>
 
     <!-- Buscador en Vivo -->
@@ -78,14 +73,15 @@
 
         <!-- CATEGORÍA: Jordan 1 OG -->
         <section class="category-section">
-            <div class="category-header">
-                <h2 class="category-title">Jordan 1 Retro OG (High/Low)</h2>
-                <span class="category-count">0</span>
-            </div>
+<div class="category-header">
+    <h2 class="category-title">Jordan 1 Retro OG (High/Low)</h2>
+    <span class="category-count">12</span>
+</div>
             <div class="sneakers-grid">
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/DZ5485-020.png" alt="Jordan 1 High Palomino" loading="lazy">
+                    <img src="../imagenes/sns/DZ5485-020.png" alt="Jordan 1 High Palomino" loading="lazy">
                     <div class="sneaker-info">
+                    <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro High OG</div>
                         <div class="sku">DZ5485-020</div>
                         <strong class="colorway">"Palomino (2023)"</strong>
@@ -93,8 +89,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/CZ0790-102.png" alt="Jordan 1 Low Mocha" loading="lazy">
+                    <img src="../imagenes/sns/CZ0790-102.png" alt="Jordan 1 Low Mocha" loading="lazy">
                     <div class="sneaker-info">
+                    <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG</div>
                         <div class="sku">CZ0790-102</div>
                         <strong class="colorway">"Mocha (2024)"</strong>
@@ -102,8 +99,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/CZ0790-003.png" alt="Jordan 1 Low Shadow" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CZ0790-003.png" alt="Jordan 1 Low Shadow" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG</div>
                         <div class="sku">CZ0790-003</div>
                         <strong class="colorway">"Shadow (2024)"</strong>
@@ -111,8 +109,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/CZ0790-140.png" alt="Jordan 1 Low Game Royal" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CZ0790-140.png" alt="Jordan 1 Low Game Royal" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG</div>
                         <div class="sku">CZ0790-140</div>
                         <strong class="colorway">"Game Royal (2024)"</strong>
@@ -120,8 +119,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/CZ0790-104.png" alt="Jordan 1 Low Powder Blue" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CZ0790-104.png" alt="Jordan 1 Low Powder Blue" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG</div>
                         <div class="sku">CZ0790-104</div>
                         <strong class="colorway">"Black Dark Powder Blue (2022)"</strong>
@@ -129,8 +129,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/HQ6998-600.png" alt="Jordan 1 Low Chicago" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/HQ6998-600.png" alt="Jordan 1 Low Chicago" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG</div>
                         <div class="sku">HQ6998-600</div>
                         <strong class="colorway">"Chicago (2025)"</strong>
@@ -138,8 +139,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/CZ0790-106.png" alt="Jordan 1 Low Black Toe" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CZ0790-106.png" alt="Jordan 1 Low Black Toe" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG</div>
                         <div class="sku">CZ0790-106</div>
                         <strong class="colorway">"Black Toe (2023)"</strong>
@@ -147,8 +149,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/CZ0790-110.png" alt="Jordan 1 Low Barons" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CZ0790-110.png" alt="Jordan 1 Low Barons" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG</div>
                         <div class="sku">CZ0790-110</div>
                         <strong class="colorway">"Barons (2024)"</strong>
@@ -156,8 +159,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/DM7866-140.png" alt="Jordan 1 Low Travis Scott Fragment" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DM7866-140.png" alt="Jordan 1 Low Travis Scott Fragment" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG SP</div>
                         <div class="sku">DM7866-140</div>
                         <strong class="colorway">"Fragment x Travis Scott (2021)"</strong>
@@ -167,8 +171,9 @@
                 <!-- Ejemplo de tarjeta con Badge RETURN -->
                 <div class="sneaker-card">
                     <span class="badge badge-return">RETURN</span>
-                    <img src="Imagenes/sns/CZ0790-001.png" alt="Jordan 1 Low Black Cement" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CZ0790-001.png" alt="Jordan 1 Low Black Cement" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG</div>
                         <div class="sku">CZ0790-001</div>
                         <strong class="colorway">"Black Cement (2021)"</strong>
@@ -177,8 +182,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DZ5485-612.png" alt="Jordan 1 Chicago Lost and Found" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DZ5485-612.png" alt="Jordan 1 Chicago Lost and Found" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro High OG</div>
                         <div class="sku">DZ5485-612</div>
                         <strong class="colorway">Chicago Lost and Found (2022)</strong>
@@ -188,8 +194,9 @@
                 <!-- Ejemplo de tarjeta con Badge SOLD -->
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/705329-600.png" alt="Jordan 1 Low Chicago" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/705329-600.png" alt="Jordan 1 Low Chicago" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Retro Low OG</div>
                         <div class="sku">705329-600</div>
                         <strong class="colorway">"Chicago (2016)"</strong>
@@ -206,8 +213,9 @@
             </div>
             <div class="sneakers-grid">
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/FB9911-001.png" alt="Jordan 1 Mid Panda Elephant" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/FB9911-001.png" alt="Jordan 1 Mid Panda Elephant" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Mid SE</div>
                         <div class="sku">FB9911-001</div>
                         <strong class="colorway">"Panda Elephant (2023)"</strong>
@@ -215,8 +223,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/553558-053.png" alt="Jordan 1 Low Stealth Grey" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/553558-053.png" alt="Jordan 1 Low Stealth Grey" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Low</div>
                         <div class="sku">553558-053</div>
                         <strong class="colorway">"Vintage Stealth Grey (2022)"</strong>
@@ -225,8 +234,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-return">RETURN</span>
-                    <img src="Imagenes/sns/FJ3459-160.png" alt="Jordan 1 Low Dune Red" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/FJ3459-160.png" alt="Jordan 1 Low Dune Red" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Low SE</div>
                         <div class="sku">FJ3459-160</div>
                         <strong class="colorway">"Dune Red (2024)"</strong>
@@ -235,8 +245,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/553558-607.png" alt="Jordan 1 Low Cardinal Red" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/553558-607.png" alt="Jordan 1 Low Cardinal Red" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Low</div>
                         <div class="sku">553558-607</div>
                         <strong class="colorway">"Cardinal Red (2022)"</strong>
@@ -245,8 +256,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DC7294-600.png" alt="Jordan 1 Mid Barcelona Sweater" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DC7294-600.png" alt="Jordan 1 Mid Barcelona Sweater" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 1 Mid</div>
                         <div class="sku">DC7294-600</div>
                         <strong class="colorway">"Barcelona Sweater Red Patent (2021)"</strong>
@@ -264,8 +276,9 @@
             </div>
             <div class="sneakers-grid">
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/FQ8899-100.png" alt="Nike Dunk Low Vintage Panda" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/FQ8899-100.png" alt="Nike Dunk Low Vintage Panda" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Dunk Low PRM</div>
                         <div class="sku">FQ8899-100</div>
                         <strong class="colorway">"Vintage Panda (2023)"</strong>
@@ -273,8 +286,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/DR9511-100.png" alt="Nike Dunk Low World Champs" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DR9511-100.png" alt="Nike Dunk Low World Champs" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Dunk Low SE</div>
                         <div class="sku">DR9511-100</div>
                         <strong class="colorway">"World Champs Black White (2022)"</strong>
@@ -282,8 +296,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/DD3357-100.png" alt="Nike Dunk Low Halloween" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DD3357-100.png" alt="Nike Dunk Low Halloween" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Dunk Low PRM</div>
                         <div class="sku">DD3357-100</div>
                         <strong class="colorway">"Halloween (2021)"</strong>
@@ -291,8 +306,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/FN7509-029.png" alt="Nike P-6000 Flat Pewter" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/FN7509-029.png" alt="Nike P-6000 Flat Pewter" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike P-6000</div>
                         <div class="sku">FN7509-029</div>
                         <strong class="colorway">"Flat Pewter (2023)"</strong>
@@ -300,8 +316,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/BV1021-200.png" alt="Nike P-6000 Fauna Brown" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/BV1021-200.png" alt="Nike P-6000 Fauna Brown" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike P-6000</div>
                         <div class="sku">BV1021-200</div>
                         <strong class="colorway">"Fauna Brown (2025)"</strong>
@@ -309,8 +326,9 @@
                 </div>
                 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/IB3722-201.png" alt="Jordan Trunner O/S Cave Stone" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/IB3722-201.png" alt="Jordan Trunner O/S Cave Stone" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan Trunner O/S</div>
                         <div class="sku">IB3722-201</div>
                         <strong class="colorway">"Cave Stone (2025)"</strong>
@@ -319,8 +337,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DD1503-124.png" alt="Nike Dunk Low Cacao" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DD1503-124.png" alt="Nike Dunk Low Cacao" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Dunk Low</div>
                         <div class="sku">DD1503-124</div>
                         <strong class="colorway">"Cacao (2023)"</strong>
@@ -329,8 +348,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-return">RETURN</span>
-                    <img src="Imagenes/sns/DD1391-004.png" alt="Nike Dunk Low Goldenrod" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DD1391-004.png" alt="Nike Dunk Low Goldenrod" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Dunk Low</div>
                         <div class="sku">DD1391-004</div>
                         <strong class="colorway">"Championship Goldenrod (2021)"</strong>
@@ -339,8 +359,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-return">RETURN</span>
-                    <img src="Imagenes/sns/DD1391-103.png" alt="Nike Dunk Low Grey Fog" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DD1391-103.png" alt="Nike Dunk Low Grey Fog" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Dunk Low</div>
                         <div class="sku">DD1391-103</div>
                         <strong class="colorway">"Grey Fog (2021)"</strong>
@@ -349,8 +370,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-return">RETURN</span>
-                    <img src="Imagenes/sns/FJ4227-001.png" alt="Nike Dunk Low Mini Swoosh" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/FJ4227-001.png" alt="Nike Dunk Low Mini Swoosh" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Dunk Low</div>
                         <div class="sku">FJ4227-001</div>
                         <strong class="colorway">"White Grey Navy Aqua Mini Swoosh (2023)"</strong>
@@ -359,8 +381,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DH8009-600.png" alt="Nike Dunk Low Fruity Pebbles" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DH8009-600.png" alt="Nike Dunk Low Fruity Pebbles" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Dunk Low QS</div>
                         <div class="sku">DH8009-600</div>
                         <strong class="colorway">"LeBron James Fruity Pebbles (2022)"</strong>
@@ -369,8 +392,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DZ2536-600.png" alt="Nike Dunk Low Chicago Split" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DZ2536-600.png" alt="Nike Dunk Low Chicago Split" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Dunk Low PRM</div>
                         <div class="sku">DZ2536-600</div>
                         <strong class="colorway">"Chicago Split (2023)"</strong>
@@ -379,8 +403,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/CW7587-100.png" alt="Nike Squash Type White" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CW7587-100.png" alt="Nike Squash Type White" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Squash Type</div>
                         <div class="sku">CW7587-100</div>
                         <strong class="colorway">"White Platinum Tint (2020)"</strong>
@@ -389,8 +414,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/CJ1640-002.png" alt="Nike Squash Type Pure Platinum" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CJ1640-002.png" alt="Nike Squash Type Pure Platinum" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Squash Type</div>
                         <div class="sku">CJ1640-002</div>
                         <strong class="colorway">"Pure Platinum (2020)"</strong>
@@ -399,8 +425,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/CJ1640-101.png" alt="Nike Squash Type Summit White" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CJ1640-101.png" alt="Nike Squash Type Summit White" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Squash-Type</div>
                         <div class="sku">CJ1640-101</div>
                         <strong class="colorway">"Summit White Orange (2020)"</strong>
@@ -409,8 +436,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DC9104-400.png" alt="Nike Nyjah Free Samborghini" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DC9104-400.png" alt="Nike Nyjah Free Samborghini" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike SB Nyjah Free 2 PRM</div>
                         <div class="sku">DC9104-400</div>
                         <strong class="colorway">"Samborghini (2021)"</strong>
@@ -419,8 +447,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/AQ1774-102.png" alt="Nike Ebernon Low Wolf Grey" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/AQ1774-102.png" alt="Nike Ebernon Low Wolf Grey" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Ebernon Low PRM</div>
                         <div class="sku">AQ1774-102</div>
                         <strong class="colorway">"White Black Wolf Grey (2022)"</strong>
@@ -437,8 +466,9 @@
             </div>
             <div class="sneakers-grid">
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/H03405.png" alt="Adidas Stan Smith" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/H03405.png" alt="Adidas Stan Smith" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas Stan Smith</div>
                         <div class="sku">H03405</div>
                         <strong class="colorway">"Stan Smith Shoes (2022)"</strong>
@@ -446,8 +476,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/B37571.png" alt="Adidas Yeezy 350 Slate" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/B37571.png" alt="Adidas Yeezy 350 Slate" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas Yeezy 350 V2</div>
                         <div class="sku">B37571</div>
                         <strong class="colorway">"Slate (2022)"</strong>
@@ -455,8 +486,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/IE4931.png" alt="Adidas Yeezy Foam RNR" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/IE4931.png" alt="Adidas Yeezy Foam RNR" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas Yeezy Foam RNR</div>
                         <div class="sku">IE4931</div>
                         <strong class="colorway">"MX Granite (2024)"</strong>
@@ -465,8 +497,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/BB1826.png" alt="Adidas Yeezy 350 Beluga" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/BB1826.png" alt="Adidas Yeezy 350 Beluga" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas Yeezy 350 V2</div>
                         <div class="sku">BB1826</div>
                         <strong class="colorway">"Beluga (2016)"</strong>
@@ -475,8 +508,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/HP7870.png" alt="Adidas Yeezy 350 Slate" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/HP7870.png" alt="Adidas Yeezy 350 Slate" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas Yeezy 350 V2</div>
                         <div class="sku">HP7870</div>
                         <strong class="colorway">"Slate (2022)"</strong>
@@ -485,8 +519,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/H04252.png" alt="Adidas Ozelia Triple Grey" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/H04252.png" alt="Adidas Ozelia Triple Grey" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas Ozelia</div>
                         <div class="sku">H04252</div>
                         <strong class="colorway">"Triple Grey (2021)"</strong>
@@ -495,8 +530,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/GX1831.png" alt="Adidas Ozweego Grey" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/GX1831.png" alt="Adidas Ozweego Grey" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas Ozweego</div>
                         <div class="sku">GX1831</div>
                         <strong class="colorway">"Light Solid Grey (2022)"</strong>
@@ -505,8 +541,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/CQ2162.png" alt="Adidas Tennis HU Pharrell" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CQ2162.png" alt="Adidas Tennis HU Pharrell" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas Tennis HU</div>
                         <div class="sku">CQ2162</div>
                         <strong class="colorway">"Pharrell Carbon (2017)"</strong>
@@ -523,8 +560,9 @@
             </div>
             <div class="sneakers-grid">
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/DH7347-900.png" alt="Nike Zoom Freak 3" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DH7347-900.png" alt="Nike Zoom Freak 3" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom Freak 3</div>
                         <div class="sku">DH7347-900</div>
                         <strong class="colorway">"Everlasting Love (2022)"</strong>
@@ -532,8 +570,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/DJ6015-001.png" alt="Nike Zoom GT Cut 2" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DJ6015-001.png" alt="Nike Zoom GT Cut 2" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom GT Cut 2</div>
                         <div class="sku">DJ6015-001</div>
                         <strong class="colorway">"Black Bright Crimson (2022)"</strong>
@@ -541,8 +580,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/DV2913-004.png" alt="Nike Zoom GT Cut 3 Smoke" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DV2913-004.png" alt="Nike Zoom GT Cut 3 Smoke" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom GT Cut 3</div>
                         <div class="sku">DV2913-004</div>
                         <strong class="colorway">"Smoke (2024)"</strong>
@@ -550,8 +590,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/JQ2252.png" alt="Adidas DON Issue 6" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/JQ2252.png" alt="Adidas DON Issue 6" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas D.O.N. Issue #6</div>
                         <div class="sku">JQ2252</div>
                         <strong class="colorway">"Outer Limits (2025)"</strong>
@@ -559,8 +600,9 @@
                 </div>
 
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/JS1300.png" alt="Adidas D.O.N. Issue 7" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/JS1300.png" alt="Adidas D.O.N. Issue 7" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Adidas D.O.N. Issue 7</div>
                         <div class="sku">JS1300</div>
                         <strong class="colorway">"Foundation (2025)"</strong>
@@ -569,8 +611,9 @@
                 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/FD7328-002.png" alt="Nike Ja 2" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/FD7328-002.png" alt="Nike Ja 2" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Ja 2</div>
                         <div class="sku">FD7328-002</div>
                         <strong class="colorway">"Exposure Iron Grey (2025)"</strong>
@@ -579,8 +622,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-dead">DEAD</span>
-                    <img src="Imagenes/sns/DA0694-500.png" alt="Nike Zoom Freak 3 Cave Purple" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DA0694-500.png" alt="Nike Zoom Freak 3 Cave Purple" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom Freak 3</div>
                         <div class="sku">DA0694-500</div>
                         <strong class="colorway">"Cave Purple (2021)"</strong>
@@ -589,8 +633,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DA0694-004.png" alt="Nike Zoom Freak 3 Grey Marble" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DA0694-004.png" alt="Nike Zoom Freak 3 Grey Marble" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom Freak 3</div>
                         <div class="sku">DA0694-004</div>
                         <strong class="colorway">"NBA 75th Anniversary Grey Marble Lime (2022)"</strong>
@@ -599,8 +644,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DA0694-006.png" alt="Nike Zoom Freak 3 Low Battery" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DA0694-006.png" alt="Nike Zoom Freak 3 Low Battery" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom Freak 3</div>
                         <div class="sku">DA0694-006</div>
                         <strong class="colorway">"Low Battery (2022)"</strong>
@@ -609,8 +655,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DA0694-401.png" alt="Nike Zoom Freak 3 Freeze Time" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DA0694-401.png" alt="Nike Zoom Freak 3 Freeze Time" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom Freak 3</div>
                         <div class="sku">DA0694-401</div>
                         <strong class="colorway">"Freeze Time (2022)"</strong>
@@ -619,8 +666,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DQ6510-003.png" alt="Jordan Luka 1 Black Lime" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DQ6510-003.png" alt="Jordan Luka 1 Black Lime" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan Luka 1</div>
                         <div class="sku">DQ6510-003</div>
                         <strong class="colorway">Black Lime Glow (2022)</strong>
@@ -629,8 +677,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DH0832-063.png" alt="Jordan 36 Low" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DH0832-063.png" alt="Jordan 36 Low" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan 36 Low</div>
                         <div class="sku">DH0832-063</div>
                         <strong class="colorway">"Black Multi-Color (2022)"</strong>
@@ -639,8 +688,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/CZ2650-100.png" alt="Jordan Luka 36 Psychic Energy" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CZ2650-100.png" alt="Jordan Luka 36 Psychic Energy" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Jordan Luka 36</div>
                         <div class="sku">CZ2650-100</div>
                         <strong class="colorway">Psychic Energy (2021)</strong>
@@ -649,8 +699,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/DX6650-401.png" alt="Nike Zoom GT Cut 2 Midnight Navy" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/DX6650-401.png" alt="Nike Zoom GT Cut 2 Midnight Navy" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom GT Cut 2</div>
                         <div class="sku">DX6650-401</div>
                         <strong class="colorway">"TB Promo Midnight Navy (2023)"</strong>
@@ -659,8 +710,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/FB2599-001.png" alt="Nike GT Cut Academy" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/FB2599-001.png" alt="Nike GT Cut Academy" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom GT Cut Academy</div>
                         <div class="sku">FB2599-001</div>
                         <strong class="colorway">"Black Green Strike (2024)"</strong>
@@ -669,8 +721,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/FB2599-004.png" alt="Nike GT Cut Academy Smoke" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/FB2599-004.png" alt="Nike GT Cut Academy Smoke" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Zoom GT Cut Academy</div>
                         <div class="sku">FB2599-004</div>
                         <strong class="colorway">"Light Smoke Grey (2024)"</strong>
@@ -679,8 +732,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/CW3146-002.png" alt="Nike PG 5 Bred" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CW3146-002.png" alt="Nike PG 5 Bred" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike PG 5</div>
                         <div class="sku">CW3146-002</div>
                         <strong class="colorway">Bred (2021)</strong>
@@ -689,8 +743,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/CQ9326-002.png" alt="Nike Kyrie 7 BK Black" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CQ9326-002.png" alt="Nike Kyrie 7 BK Black" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Kyrie 7</div>
                         <div class="sku">CQ9326-002</div>
                         <strong class="colorway">BK Black 2020 (2020)</strong>
@@ -699,8 +754,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/CQ9326-005.png" alt="Nike Kyrie 7 Ripple Effect" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/CQ9326-005.png" alt="Nike Kyrie 7 Ripple Effect" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Nike Kyrie 7</div>
                         <div class="sku">CQ9326-005</div>
                         <strong class="colorway">Ripple Effect (2021)</strong>
@@ -709,8 +765,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/193990-03.png" alt="Puma RS-Dreamer J. Cole Black" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/193990-03.png" alt="Puma RS-Dreamer J. Cole Black" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Puma RS-Dreamer</div>
                         <div class="sku">193990-03</div>
                         <strong class="colorway">J. Cole Black (2020)</strong>
@@ -719,8 +776,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-sold">SOLD</span>
-                    <img src="Imagenes/sns/194602-01.png" alt="Puma RS-Dreamer Blood Sweat and Tears" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/194602-01.png" alt="Puma RS-Dreamer Blood Sweat and Tears" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Puma RS-Dreamer</div>
                         <div class="sku">194602-01</div>
                         <strong class="colorway">J. Cole Blood, Sweat and Tears (2020)</strong>
@@ -737,8 +795,9 @@
             </div>
             <div class="sneakers-grid">
                 <div class="sneaker-card">
-                    <img src="Imagenes/sns/207937-260.png" alt="Crocs Echo Clog Khaki" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/207937-260.png" alt="Crocs Echo Clog Khaki" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Crocs Echo Clog</div>
                         <div class="sku">207937-260</div>
                         <strong class="colorway">"Khaki (2023)"</strong>
@@ -747,8 +806,9 @@
 
                 <div class="sneaker-card">
                     <span class="badge badge-dead">DEAD</span>
-                    <img src="Imagenes/sns/207937-1FT.png" alt="Crocs Echo Clog Atmosphere" loading="lazy">
-                    <div class="sneaker-info">
+                    <img src="../imagenes/sns/207937-1FT.png" alt="Crocs Echo Clog Atmosphere" loading="lazy">
+                              <div class="sneaker-info">
+           <hr class="card-divider">
                         <div class="model-name">Crocs Echo Clog</div>
                         <div class="sku">207937-1FT</div>
                         <strong class="colorway">"Atmosphere (2023)"</strong>
@@ -760,9 +820,9 @@
     </main>
 
     <!-- Pie de página -->
-    <footer class="footer-nav">
-        <a href="index.html" class="btn-home">← Home</a>
-    </footer>
+    <!-- Pie de página Base -->
+    <footer>Collecto © 2026</footer>
+
 
     <!-- Script de Interactividad -->
     <script>
