@@ -1,0 +1,257 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Private Vault</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../imagenes/favicon/favicon3.ico">
+    
+    <!-- Fuente moderna Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Vincula tu nuevo archivo de estilos -->
+    <link rel="stylesheet" href="../static/style.css">
+
+</head>
+<body>
+
+    <!-- Encabezado Base -->
+    <header>
+        <h1>📦 The Private Vault</h1>
+        <p>Everything you collect, in one place.</p>
+    </header>
+
+    <!-- Menú de Navegación Base -->
+    <nav>
+        <a href="../index.html">Dashboard</a>
+        <a href="sneakers.html">Sneakers</a>
+        <a href="watches.html">Watches</a>
+        <a href="caps.html" class="active">Caps</a>
+    </nav>
+
+
+
+    <!-- Buscador en Vivo -->
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscador (ej. Marca, equipo)...">
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="collection-container">
+
+    <!-- CATEGORÍA: Caps -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">Caps</h2>
+            <span class="category-count">0</span>
+        </div>
+
+        <!-- ÚNICO contenedor grid para todas las tarjetas -->
+        <div class="sneakers-grid watches-grid">
+            
+            <div class="sneaker-card">
+                <img src="../imagenes/Caps/60422518.png" alt="LA Dodgers World Series" loading="lazy">
+                <div class="sneaker-info">
+                    <hr class="card-divider">
+                    <strong class="model-name">LA Dodgers World Series Patch 9FORTY</strong>
+                    <ul class="watch-specs-list">
+                        <li>New Era</li>
+                        <li>60422518</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sneaker-card">
+                <img src="../imagenes/Caps/60422502.png" alt="Boston Red Sox World Series" loading="lazy">
+                <div class="sneaker-info">
+                    <hr class="card-divider">
+                    <strong class="model-name">Boston Red Sox World Series Patch 9FORTY E-Frame</strong>
+                    <ul class="watch-specs-list">
+                        <li>New Era</li>
+                        <li>60422502</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sneaker-card">
+                <img src="../imagenes/Caps/60426642.png" alt="LA Dodgers Harvest A-Frame" loading="lazy">
+                <div class="sneaker-info">
+                    <hr class="card-divider">
+                    <strong class="model-name">LA Dodgers Harvest A-Frame 940AF 9FORTY</strong>
+                    <ul class="watch-specs-list">
+                        <li>New Era</li>
+                        <li>60426642</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sneaker-card">
+                <img src="../imagenes/Caps/70803512.png" alt="LA Dodgers Lips 9FORTY A-Frame" loading="lazy">
+                <div class="sneaker-info">
+                    <hr class="card-divider">
+                    <strong class="model-name">LA Dodgers Lips 9FORTY A-Frame</strong>
+                    <ul class="watch-specs-list">
+                        <li>New Era</li>
+                        <li>70803512</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sneaker-card">
+                <img src="../imagenes/Caps/70803508.png" alt="New York Yankees Lips 9FORTY A-Frame" loading="lazy">
+                <div class="sneaker-info">
+                    <hr class="card-divider">
+                    <strong class="model-name">New York Yankees Lips 9FORTY A-Frame</strong>
+                    <ul class="watch-specs-list">
+                        <li>New Era</li>
+                        <li>70803508</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sneaker-card">
+                <img src="../imagenes/Caps/60794190.png" alt="Tissot Seastar 1000" loading="lazy">
+                <div class="sneaker-info">
+                    <hr class="card-divider">
+                    <strong class="model-name">Dominican Republic WBC 2026 59FIFTY 7 3/8</strong>
+                    <ul class="watch-specs-list">
+                        <li>New Era</li>
+                        <li>60794190</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <!-- Pie de página Base -->
+    <footer>The Private Vault © 2026</footer>
+
+
+    <!-- Script de Interactividad -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Elementos de estadísticas globales (Fijas)
+            const stockCountEl = document.getElementById('stockCount');
+            const soldCountEl = document.getElementById('soldCount');
+            const returnCountEl = document.getElementById('returnCount');
+            const deadCountEl = document.getElementById('deadCount');
+
+            // 2. Elementos de las secciones y buscador
+            const sections = document.querySelectorAll('.category-section');
+            const sneakerCards = document.querySelectorAll('.sneaker-card');
+            const searchInput = document.getElementById('searchInput');
+
+            // Calcular las estadísticas globales totales una sola vez al cargar
+            const initGlobalStats = () => {
+                let totalStock = 0;
+                let totalSold = 0;
+                let totalReturn = 0;
+                let totalDead = 0;
+
+                sneakerCards.forEach(card => {
+                    const hasSold = card.querySelector('.badge-sold');
+                    const hasReturn = card.querySelector('.badge-return');
+                    const hasDead = card.querySelector('.badge-dead');
+
+                    if (hasSold) {
+                        totalSold++;
+                    } else if (hasReturn) {
+                        totalReturn++;
+                    } else if (hasDead) {
+                        totalDead++;
+                    } else {
+                        totalStock++;
+                    }
+                });
+
+                if (stockCountEl) stockCountEl.textContent = totalStock;
+                if (soldCountEl) soldCountEl.textContent = totalSold;
+                if (returnCountEl) returnCountEl.textContent = totalReturn;
+                if (deadCountEl) deadCountEl.textContent = totalDead;
+            };
+
+            // Actualizar solo los contadores individuales de cada categoría según la búsqueda
+            const updateCategoryCounts = () => {
+                sections.forEach(section => {
+                    const visibleCards = section.querySelectorAll('.sneaker-card:not([style*="display: none"])');
+                    const countBadge = section.querySelector('.category-count');
+                    countBadge.textContent = visibleCards.length;
+
+                    if (visibleCards.length === 0) {
+                        section.style.display = 'none';
+                    } else {
+                        section.style.display = 'block';
+                    }
+                });
+            };
+
+            // Inicializar estadísticas fijas y contadores de categoría al iniciar
+            initGlobalStats();
+            updateCategoryCounts();
+
+            // Lógica del Buscador en Vivo
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+
+                sneakerCards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                updateCategoryCounts(); // Esto actualiza solo los numeritos de las categorías y oculta secciones vacías, sin tocar las estadísticas de arriba.
+            });
+        });
+
+            document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("expanded-img");
+            const closeBtn = document.querySelector(".modal-close");
+
+            // Selecciona todas las imágenes dentro de las tarjetas
+            document.addEventListener("click", (e) => {
+                if (e.target.matches(".sneaker-card img")) {
+                    modalImg.src = e.target.src;
+                    modalImg.alt = e.target.alt;
+                    modal.classList.add("show");
+                }
+            });
+
+            // Cerrar haciendo clic en la 'X'
+            closeBtn.addEventListener("click", () => {
+                modal.classList.remove("show");
+            });
+
+            // Cerrar haciendo clic en cualquier parte fuera de la imagen
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal || e.target === closeBtn) {
+                    modal.classList.remove("show");
+                }
+            });
+
+            // Cerrar también presionando la tecla 'ESC'
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && modal.classList.contains("show")) {
+                    modal.classList.remove("show");
+                }
+            });
+        });
+
+    </script>
+
+<!-- Modal para ampliar la imagen -->
+<div id="image-modal" class="image-modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="expanded-img" alt="Imagen ampliada">
+</div>
+</body>
+</html>

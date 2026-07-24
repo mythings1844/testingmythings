@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collecto - Dashboard</title>
+    <title>The Private Vault</title>
 
     <!-- Fuentes de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 
     <!-- Encabezado Base -->
     <header>
-        <h1>📦 Collecto</h1>
+        <h1>📦 The Private Vault</h1>
         <p>Everything you collect, in one place.</p>
     </header>
 
@@ -24,47 +24,169 @@
         <a href="index.html" class="active">Dashboard</a>
         <a href="templates/sneakers.html">Sneakers</a>
         <a href="templates/watches.html">Watches</a>
-        <a href="Others.html">Caps</a>
-        <a href="#">Others</a>
+        <a href="templates/caps.html">Caps</a>
     </nav>
 
-    <!-- Contenido Principal de esta página -->
     <div class="container">
-        <div class="stats"></div>
+        <div class="stats">
+        <div class="card"><div class="num">🏷️ 128</div><div class="lbl">Total Items</div></div>
+        <div class="card"><div class="num">👟 26</div><div class="lbl">Sneakers</div></div>
+        <div class="card"><div class="num">⌚ 18</div><div class="lbl">Watches</div></div>
+        <div class="card"><div class="num">🧢 12</div><div class="lbl">Caps</div></div>
+    </div>
 
-        <div class="section">
-            <h2>Categorías</h2><br>
+<!-- BLOQUE PRINCIPAL: Categorías -->
+<div class="main-categories-header">
+    <h2 class="main-title">Categorías</h2>
+    <div class="header-divider"></div>
+</div>
 
-            <div class="grid">
-                <div class="tile">
-                    <div class="icon">👟</div>
-                    <h3>Sneakers</h3>
-                    <p>26 Items</p>
-                </div>
+<!-- SECCIÓN: Sneakers -->
+<section class="category-section">
+    <div class="category-header">
+        <div class="header-left">
+            <span class="category-icon">👟</span>
+            <h2 class="category-title">Sneakers</h2>
+        </div>
+        <a href="templates/sneakers.html" class="see-all-btn">Ver todo &rarr;</a>
+    </div>
 
-                <div class="tile">
-                    <div class="icon">⌚</div>
-                    <h3>Watches</h3>
-                    <p>9 Items</p>
-                </div>
+    <div class="sneakers-grid">
+        <!-- Card 1 -->
+        <div class="sneaker-card">
+            <img src="imagenes/sns/HQ6998-600.png" alt="Jordan 1 Retro High OG Palomino" loading="lazy">
+            <hr class="card-divider">
+            <div class="sneaker-info">
+                <strong class="model-name">Jordan 1 Retro Low OG</strong>
+                <span class="model-sub">Chicago (2025)</span>
+            </div>
+        </div>
 
-                <div class="tile">
-                    <div class="icon">🧢</div>
-                    <h3>Caps</h3>
-                    <p>18 Items</p>
-                </div>
+        <!-- Card 2 -->
+        <div class="sneaker-card">
+            <img src="imagenes/sns/FQ8899-100.png" alt="Jordan 1 Retro Low OG Mocha" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">Nike Dunk Low PRM</strong>
+                <span class="model-sub">Vintage Panda (2023)</span>
+            </div>
+        </div>
 
-                <div class="tile">
-                    <div class="icon">🕶️</div>
-                    <h3>Accessories</h3>
-                    <p>15 Items</p>
-                </div>
+        <!-- Card 3 -->
+        <div class="sneaker-card">
+            <span class="badge badge-sold">SOLD</span>
+            <img src="imagenes/sns/DZ5485-612.png" alt="Jordan 1 Retro High OG Shadow" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">Jordan 1 Retro Low OG S</strong>
+                <span class="model-sub">Chicago Lost and Found (2022)</span>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="sneaker-card">
+            <img src="imagenes/sns/DM7866-140.png" alt="Jordan 1 Retro Low OG Game Royal" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">Jordan 1 Retro Low OG SP</strong>
+                <span class="model-sub">Fragment x Travis Scott (2021)</span>
             </div>
         </div>
     </div>
+</section>
+
+<!-- SECCIÓN: Watches -->
+<section class="category-section">
+    <div class="category-header">
+        <div class="header-left">
+            <span class="category-icon">⌚</span>
+            <h2 class="category-title">Watches</h2>
+        </div>
+        <a href="templates/watches.html" class="see-all-btn">Ver todo &rarr;</a>
+    </div>
+
+    <div class="sneakers-grid">
+        <!-- Card 1 -->
+        <div class="sneaker-card">
+            <img src="imagenes/watches/GM-5600U-1.png" alt="Casio G-Shock" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">Casio G-Shock</strong>
+                <span class="model-sub">GM-5600U-1</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="sneaker-card">
+            <img src="imagenes/watches/tissot-seastar-1000.png" alt="Tissot Seastar 1000" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">Tissot Seastar 1000</strong>
+                <span class="model-sub">T120.410.11.051.00</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="sneaker-card">
+            <img src="imagenes/watches/SBDJ063.png" alt="Seiko Prospex Divers Scuba" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">Seiko Prospex Divers Scuba</strong>
+                <span class="model-sub">SBDJ063</span>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="sneaker-card">
+            <img src="imagenes/watches/96B439.png" alt="Bulova Classic Surveyor" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">Bulova Precisionist SUPER SEVILLE</strong>
+                <span class="model-sub">96B429</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN: Caps -->
+<section class="category-section">
+    <div class="category-header">
+        <div class="header-left">
+            <span class="category-icon">🧢</span>
+            <h2 class="category-title">Caps</h2>
+        </div>
+        <a href="templates/caps.html" class="see-all-btn">Ver todo &rarr;</a>
+    </div>
+
+    <div class="sneakers-grid">
+        <!-- Card 1 -->
+        <div class="sneaker-card">
+            <img src="imagenes/Caps/60794190.png" alt="LA Dodgers World Series Patch 9FORTY" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">Dominican Republic WBC 2026</strong>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="sneaker-card">
+            <img src="imagenes/Caps/60426642.png" alt="New York Yankees Lips 9FORTY A-Frame" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">LA Dodgers Harvest A-Frame</strong>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="sneaker-card">
+            <img src="imagenes/Caps/70803512.png" alt="Boston Red Sox World Series Patch 9FORTY E-Frame" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">LA Dodgers Lips</strong>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="sneaker-card">
+            <img src="imagenes/Caps/70803508.png" alt="LA Dodgers Lips 9FORTY A-Frame" loading="lazy">
+            <div class="sneaker-info">
+                <strong class="model-name">New York Yankees Lips</strong>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Pie de página Base -->
-    <footer>Collecto © 2026</footer>
+    <footer>The Private Vault © 2026</footer>
 
 </body>
 </html>

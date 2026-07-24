@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sneakers Collection</title>
+    <title>The Private Vault</title>
     <link rel="shortcut icon" type="image/x-icon" href="../imagenes/favicon/favicon3.ico">
     
     <!-- Fuente moderna Google Fonts -->
@@ -19,7 +19,7 @@
 
     <!-- Encabezado Base -->
     <header>
-        <h1>📦 Collecto</h1>
+        <h1>📦 The Private Vault</h1>
         <p>Everything you collect, in one place.</p>
     </header>
 
@@ -28,8 +28,7 @@
         <a href="../index.html">Dashboard</a>
         <a href="sneakers.html">Sneakers</a>
         <a href="watches.html" class="active">Watches</a>
-        <a href="Others.html">Caps</a>
-        <a href="#">Others</a>
+        <a href="caps.html">Caps</a>
     </nav>
 
 
@@ -43,136 +42,313 @@
     <main class="collection-container">
 
      <!-- CATEGORÍA: Watches -->
-<section class="category-section">
-    <div class="category-header">
-        <h2 class="category-title">Watches</h2>
-        <span class="category-count">0</span>
-    </div>
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">Watches</h2>
+            <span class="category-count">0</span>
+        </div>
 
-    <!-- 👇 AÑADIDA LA CLASE 'watches-grid' AQUÍ 👇 -->
-    <div class="sneakers-grid watches-grid">
-        
+        <!-- 👇 AÑADIDA LA CLASE 'watches-grid' AQUÍ 👇 -->
+        <!-- 1 -->
         <div class="sneakers-grid watches-grid">
-            <div class="sneaker-card">
+            <div class="sneaker-card watch-card">
+                <!-- Botón Favorito (Corazón) arriba a la derecha -->
+                <button class="favorite-btn" aria-label="Añadir a favoritos">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </button>
+
+                <!-- Imagen Principal -->
+                <img src="../imagenes/watches/GM-5600U-1.png" alt="Tissot Seastar 1000" loading="lazy">
+                
+                <!-- Contenido de la tarjeta -->
+                <div class="sneaker-info watch-info">
+                    <!-- Título -->
+                    <h3 class="watch-title" style="text-align: center; width: 100%;">Casio G-Shock</h3>
+                    <hr class="card-divider">
+                    
+                    <!-- Lista de Especificaciones con Iconos -->
+                    <ul class="watch-specs">
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10M7 12h10M7 17h10"/></svg>
+                                Referencia:
+                            </span>
+                            <span class="spec-value">GM-5600U-1</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                Caja:
+                            </span>
+                            <span class="spec-value">Acero inoxidable</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Movimiento:
+                            </span>
+                            <span class="spec-value">Cuarzo</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+                                WR:
+                            </span>
+                            <span class="spec-value">200m</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/></svg>
+                                Diámetro:
+                            </span>
+                            <span class="spec-value">43.2mm</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                                Cristal:
+                            </span>
+                            <span class="spec-value">Mineral</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer de la tarjeta con precio y opciones -->
+                <div class="watch-card-footer">
+                    <div class="footer-meta">
+                        <span class="meta-label">Valor estimado</span>
+                        <span class="meta-price">$ --</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="sneaker-card watch-card">
+                <!-- Botón Favorito (Corazón) arriba a la derecha -->
+                <button class="favorite-btn" aria-label="Añadir a favoritos">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </button>
+
+                <!-- Imagen Principal -->
                 <img src="../imagenes/watches/tissot-seastar-1000.png" alt="Tissot Seastar 1000" loading="lazy">
-                <div class="sneaker-info">
+                
+                <!-- Contenido de la tarjeta -->
+                <div class="sneaker-info watch-info">
+                    <!-- Título -->
+                    <h3 class="watch-title" style="text-align: center; width: 100%;">Tissot Seastar 1000</h3>
                     <hr class="card-divider">
-                    <strong class="model-name">Tissot Seastar 1000</strong>
                     
-                    <ul class="watch-specs-list">
-                        <li>Referencia: T120.410.11.051.00</li>
-                        <li>Caja: Acero inoxidable 316L</li>
-                        <li>Movimiento: Cuarzo</li>
-                        <li>WR: 300m</li>
-                        <li>Diámetro: 40 mm</li>
-                        <li>Cristal: Zafiro</li>
+                    <!-- Lista de Especificaciones con Iconos -->
+                    <ul class="watch-specs">
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10M7 12h10M7 17h10"/></svg>
+                                Referencia:
+                            </span>
+                            <span class="spec-value">T120.410.11.051.00</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                Caja:
+                            </span>
+                            <span class="spec-value">Acero inoxidable 316L</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Movimiento:
+                            </span>
+                            <span class="spec-value">Cuarzo</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+                                WR:
+                            </span>
+                            <span class="spec-value">300m</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/></svg>
+                                Diámetro:
+                            </span>
+                            <span class="spec-value">40mm</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                                Cristal:
+                            </span>
+                            <span class="spec-value">Zafiro</span>
+                        </li>
                     </ul>
                 </div>
-            </div>
-        </div>
 
-        <div class="sneakers-grid watches-grid">
-            <div class="sneaker-card">
-                <img src="../imagenes/watches/96B439.png" alt="Precisionist SUPER SEVILLE" loading="lazy">
-                <div class="sneaker-info">
+                <!-- Footer de la tarjeta con precio y opciones -->
+                <div class="watch-card-footer">
+                    <div class="footer-meta">
+                        <span class="meta-label">Valor estimado</span>
+                        <span class="meta-price">$ --</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="sneaker-card watch-card">
+                <!-- Botón Favorito (Corazón) arriba a la derecha -->
+                <button class="favorite-btn" aria-label="Añadir a favoritos">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </button>
+
+                <!-- Imagen Principal -->
+                <img src="../imagenes/watches/SBDJ063.png" alt="Seiko Prospex Divers Solar" loading="lazy">
+                
+                <!-- Contenido de la tarjeta -->
+                <div class="sneaker-info watch-info">
+                    <!-- Título -->
+                    <h3 class="watch-title" style="text-align: center; width: 100%;">
+                        Seiko Prospex Divers Scuba
+                    </h3>
                     <hr class="card-divider">
-                    <strong class="model-name">Bulova Precisionist SUPER SEVILLE</strong>
                     
-                    <ul class="watch-specs-list">
-                        <li>Referencia: 96B439</li>
-                        <li>Caja: Acero inoxidable 316L </li>
-                        <li>Movimiento: High Precision 262kHz</li>
-                        <li>WR: 30m</li>
-                        <li>Diámetro (mm):  37,5</li>
-                        <li>Cristal: Zafiro</li>
+                    <!-- Lista de Especificaciones con Iconos -->
+                    <ul class="watch-specs">
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10M7 12h10M7 17h10"/></svg>
+                                Referencia:
+                            </span>
+                            <span class="spec-value">SBDJ063</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                Caja:
+                            </span>
+                            <span class="spec-value">Acero inoxidable</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Movimiento:
+                            </span>
+                            <span class="spec-value">Cuarzo solar</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+                                WR:
+                            </span>
+                            <span class="spec-value">200m</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/></svg>
+                                Diámetro:
+                            </span>
+                            <span class="spec-value">41mm</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                                Cristal:
+                            </span>
+                            <span class="spec-value">Zafiro</span>
+                        </li>
                     </ul>
                 </div>
-            </div>
-        </div>
 
-        <div class="sneaker-card watch-card">
-            <!-- Botón Favorito (Corazón) arriba a la derecha -->
-            <button class="favorite-btn" aria-label="Añadir a favoritos">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-            </button>
-
-            <!-- Imagen Principal -->
-            <img src="../imagenes/watches/tissot-seastar-1000.png" alt="Tissot Seastar 1000" loading="lazy">
-            <!-- Contenido de la tarjeta -->
-            <div class="sneaker-info watch-info">
-                
-                <!-- Píldora / Tag de la marca -->
-                <div style="width: 100%; text-align: center;">
-                    <span class="brand-badge">Tissot</span>
-                </div>
-                
-                <!-- Título -->
-                <h3 class="watch-title" style="text-align: center; width: 100%;">Seastar 1000</h3>
-                <hr class="card-divider">
-                <!-- Lista de Especificaciones con Iconos -->
-                <ul class="watch-specs">
-                    <li>
-                        <span class="spec-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10M7 12h10M7 17h10"/></svg>
-                            Referencia:
-                        </span>
-                        <span class="spec-value">T120.410.11.051.00</span>
-                    </li>
-                    <li>
-                        <span class="spec-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            Caja:
-                        </span>
-                        <span class="spec-value">Acero inoxidable 316L</span>
-                    </li>
-                    <li>
-                        <span class="spec-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            Movimiento:
-                        </span>
-                        <span class="spec-value">Cuarzo</span>
-                    </li>
-                    <li>
-                        <span class="spec-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
-                            WR:
-                        </span>
-                        <span class="spec-value">300m</span>
-                    </li>
-                    <li>
-                        <span class="spec-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/></svg>
-                            Diámetro:
-                        </span>
-                        <span class="spec-value">40 mm</span>
-                    </li>
-                    <li>
-                        <span class="spec-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                            Cristal:
-                        </span>
-                        <span class="spec-value">Zafiro</span>
-                    </li>
-                </ul>
-
-            </div>
-
-            <!-- Footer de la tarjeta con precio y opciones -->
-            <div class="watch-card-footer">
-                <div class="footer-meta">
-                    <span class="meta-label">Valor estimado</span>
-                    <span class="meta-price">$650</span>
+                <!-- Footer de la tarjeta con precio y opciones -->
+                <div class="watch-card-footer">
+                    <div class="footer-meta">
+                        <span class="meta-label">Valor estimado</span>
+                        <span class="meta-price">$ --</span>
+                    </div>
                 </div>
             </div>
+
+            <!-- 4 -->
+            <div class="sneaker-card watch-card">
+                <!-- Botón Favorito (Corazón) arriba a la derecha -->
+                <button class="favorite-btn" aria-label="Añadir a favoritos">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </button>
+
+                <!-- Imagen Principal -->
+                <img src="../imagenes/watches/96B439.png" alt="Bulova Precisionist SUPER SEVILLE" loading="lazy">
+                
+                <!-- Contenido de la tarjeta -->
+                <div class="sneaker-info watch-info">
+                    <!-- Título -->
+                    <h3 class="watch-title" style="text-align: center; width: 100%;">
+                        Bulova Precisionist SUPER SEVILLE
+                    </h3>
+                    <hr class="card-divider">
+                    
+                    <!-- Lista de Especificaciones con Iconos -->
+                    <ul class="watch-specs">
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10M7 12h10M7 17h10"/></svg>
+                                Referencia:
+                            </span>
+                            <span class="spec-value">96B439</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                Caja:
+                            </span>
+                            <span class="spec-value">Acero inoxidable 316L</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Movimiento:
+                            </span>
+                            <span class="spec-value">High Precision 262kHz</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+                                WR:
+                            </span>
+                            <span class="spec-value">30m</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/></svg>
+                                Diámetro:
+                            </span>
+                            <span class="spec-value">37.5mm</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                                Cristal:
+                            </span>
+                            <span class="spec-value">Zafiro</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer de la tarjeta con precio y opciones -->
+                <div class="watch-card-footer">
+                    <div class="footer-meta">
+                        <span class="meta-label">Valor estimado</span>
+                        <span class="meta-price">$ --</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     </main>
 
     <!-- Pie de página -->
     <!-- Pie de página Base -->
-    <footer>Collecto © 2026</footer>
+    <footer>The Private Vault © 2026</footer>
 
 
     <!-- Script de Interactividad -->
