@@ -938,6 +938,48 @@
                 updateCategoryCounts(); // Esto actualiza solo los numeritos de las categorías y oculta secciones vacías, sin tocar las estadísticas de arriba.
             });
         });
+
+
+            document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("expanded-img");
+            const closeBtn = document.querySelector(".modal-close");
+
+            // Selecciona todas las imágenes dentro de las tarjetas
+            document.addEventListener("click", (e) => {
+                if (e.target.matches(".sneaker-card img")) {
+                    modalImg.src = e.target.src;
+                    modalImg.alt = e.target.alt;
+                    modal.classList.add("show");
+                }
+            });
+
+            // Cerrar haciendo clic en la 'X'
+            closeBtn.addEventListener("click", () => {
+                modal.classList.remove("show");
+            });
+
+            // Cerrar haciendo clic en cualquier parte fuera de la imagen
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal || e.target === closeBtn) {
+                    modal.classList.remove("show");
+                }
+            });
+
+            // Cerrar también presionando la tecla 'ESC'
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && modal.classList.contains("show")) {
+                    modal.classList.remove("show");
+                }
+            });
+        });
+
     </script>
+
+<!-- Modal para ampliar la imagen -->
+<div id="image-modal" class="image-modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="expanded-img" alt="Imagen ampliada">
+</div>
 </body>
 </html>
