@@ -938,3 +938,670 @@ footer {
     background: linear-gradient(90deg, #94a3b8 0%, #cbd5e1 50%, rgba(226, 232, 240, 0.1) 100%);
     border-radius: 2px;
 }
+
+/* --- CONTENEDOR Y BOTÓN DESPLEGABLE DE FILTROS --- */
+.filter-toggle-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.btn-toggle-filtros {
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    transition: color 0.2s ease;
+}
+
+.btn-toggle-filtros:hover {
+    color: #6366f1;
+}
+
+/* --- PANEL DE FILTROS --- */
+.filtros-panel {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    gap: 15px;
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #c8c8c8;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.filtros-panel.activo {
+    display: flex;
+}
+
+.panel-search-container {
+    margin: 0;
+}
+
+/* --- BOTONES DE FILTRADO POR ESTADO --- */
+.status-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-status {
+    border: 1.5px solid #cbd5e1;
+    background: #f8fafc;
+    color: #475569;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-status:hover {
+    background: #e2e8f0;
+}
+
+.btn-status.active {
+    background: #6366f1;
+    border-color: #6366f1;
+    color: #ffffff;
+}
+
+/* --- CONTENEDOR PRINCIPAL CENTRADO --- */
+.filter-toggle-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- FILA QUE CONTIENE EL BUSCADOR Y EL BOTÓN A LA DERECHA --- */
+.search-and-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 650px;
+    position: relative;
+}
+
+/* Buscador en la izquierda */
+.search-and-filter-bar .search-container {
+    flex: 1;
+    margin: 0;
+}
+
+.search-and-filter-bar .search-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Envoltorio para posicionar el menú desplegable relativo al botón */
+.filter-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Botón a la derecha */
+.btn-toggle-filtros {
+    background: #ffffff;
+    border: 1px solid #c8c8c8;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn-toggle-filtros:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+}
+
+.icon-sliders {
+    stroke: currentColor;
+}
+
+/* --- MENÚ FLOTANTE DESPLEGABLE VERTICAL --- */
+.filtros-panel-vertical {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0; /* Se alinea hacia el borde derecho del botón */
+    background: #ffffff;
+    border: 1px solid #c8c8c8;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    min-width: 150px;
+}
+
+.filtros-panel-vertical.activo {
+    display: block !important;
+}
+
+/* Lista vertical (un botón debajo del otro) */
+.status-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.status-group-vertical .btn-status {
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: #475569;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.status-group-vertical .btn-status:hover {
+    background: #f1f5f9;
+}
+
+.status-group-vertical .btn-status.active {
+    background: #6366f1;
+    color: #ffffff;
+}
+
+/* Reducimos la distancia entre el buscador y el botón */
+.search-and-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px; /* Reducido para que queden muy pegados */
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+/* Botón transparente sin fondo, sin bordes y sin sombras */
+.btn-toggle-filtros {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 8px 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.btn-toggle-filtros:hover {
+    color: #6366f1;
+}
+
+/* Menú flotante alineado al borde del texto "Filtros" */
+.filtros-panel-vertical {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    min-width: 140px;
+}
+
+.btn-toggle-filtros {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 8px 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+    
+    /* Agrega esto para evitar que altere el tamaño del buscador */
+    min-width: 95px; /* Reserva el espacio suficiente para la palabra más larga */
+    justify-content: flex-start;
+}
+
+/* --- ESTILOS BASE DE BOTONES EN EL MENÚ FLOTANTE --- */
+.status-group-vertical .btn-status {
+    width: 100%;
+    text-align: left;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: #475569;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Efecto hover suave al pasar el cursor */
+.status-group-vertical .btn-status:hover {
+    background: #f1f5f9;
+}
+
+/* Fijamos un ancho estático para que no mueva la barra de búsqueda */
+.btn-toggle-filtros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1e293b;
+    
+    /* Ancho fijo definido */
+    width: 140px; 
+    white-space: nowrap; /* Evita que el texto salte a otra línea */
+}
+
+/* Asegúrate de que el contenedor del input absorba todo el espacio restante */
+.search-container {
+    flex: 1;
+}
+
+.search-and-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 650px;
+    width: 100%;
+}
+
+/* Contenedor principal alineado y pegado */
+.search-and-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Reducido para que esté más pegado al buscador */
+    width: 100%;
+}
+
+.search-container {
+    flex: 1; /* El buscador ocupa el espacio restante */
+}
+
+/* Botón con alineación fija a la izquierda */
+.btn-toggle-filtros {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start; /* Evita que el icono se desplace al crecer el texto */
+    gap: 6px;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1e293b;
+    white-space: nowrap;
+}
+
+.icon-sliders {
+    flex-shrink: 0; /* Asegura que el icono SVG nunca desaparezca ni se aplaste */
+}
+
+.btn-filtros-title {
+    display: inline-flex;
+    align-items: center;
+}
+
+#txtStatusFiltro {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+
+/* --- ESTILOS BASE DE LOS BOTONES DE FILTRO --- */
+.status-group-vertical .btn-status {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    margin-bottom: 4px;
+}
+
+/* --- COLORES BASADOS EN TUS ETIQUETAS --- */
+
+/* TODOS */
+.status-group-vertical .btn-status[data-status="all"]:hover,
+.status-group-vertical .btn-status[data-status="all"].active {
+    background-color: #334155;
+    color: #ffffff;
+}
+
+/* STOCK */
+.status-group-vertical .btn-stock:hover,
+.status-group-vertical .btn-stock.active {
+    background-color: #f1f5f9;
+    color: #475569;
+    border-color: #cbd5e1;
+}
+
+/* SOLD (Verde Lima) */
+.status-group-vertical .btn-sold:hover,
+.status-group-vertical .btn-sold.active {
+    background-color: #84cc16;
+    color: #ffffff;
+    border-color: #65a30d;
+}
+
+/* RETURN (Negro) */
+.status-group-vertical .btn-return:hover,
+.status-group-vertical .btn-return.active {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+/* DEAD (Granate / Rojo Vino) */
+.status-group-vertical .btn-dead:hover,
+.status-group-vertical .btn-dead.active {
+    background-color: #8b1a1a;
+    color: #ffffff;
+    border-color: #701414;
+}
+
+/* --- COLOR PARA EL TEXTO DEL BOTÓN PRINCIPAL (Filtros: ESTADO) --- */
+#txtStatusFiltro.status-color-stock { color: #475569; }
+#txtStatusFiltro.status-color-sold { color: #65a30d; }
+#txtStatusFiltro.status-color-return { color: #000000; }
+#txtStatusFiltro.status-color-dead { color: #8b1a1a; }
+
+/* Colores dinámicos para el texto del filtro activo (Filtros: ESTADO) */
+#txtStatusFiltro.status-color-stock {
+    color: #475569; /* Gris neutro */
+}
+
+#txtStatusFiltro.status-color-sold {
+    color: #65a30d; /* Verde Lima (Igual a la etiqueta SOLD) */
+}
+
+#txtStatusFiltro.status-color-return {
+    color: #000000; /* Negro (Igual a la etiqueta RETURN) */
+}
+
+#txtStatusFiltro.status-color-dead {
+    color: #8b1a1a; /* Granate / Rojo Vino (Igual a la etiqueta DEAD) */
+}
+
+/* Base para la píldora/recuadro dentro de Filtros */
+#txtStatusFiltro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 10px;
+    border-radius: 8px; /* Bordes redondeados */
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #ffffff !important; /* Texto blanco siempre */
+    margin-left: 6px;
+    transition: all 0.2s ease;
+}
+
+/* Ocultar padding/fondo cuando no hay filtro seleccionado */
+#txtStatusFiltro:empty {
+    display: none;
+}
+
+/* Colores de fondo exactos extraídos de la imagen */
+#txtStatusFiltro.status-badge-sold {
+    background-color: #8cc63f; /* Verde Lima */
+}
+
+#txtStatusFiltro.status-badge-return {
+    background-color: #000000; /* Negro */
+}
+
+#txtStatusFiltro.status-badge-dead {
+    background-color: #801d1d; /* Granate / Rojo Oscuro */
+}
+
+#txtStatusFiltro.status-badge-stock {
+    background-color: #64748b; /* Gris Neutro para Stock */
+}
+
+#txtStatusFiltro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #ffffff !important;
+    margin-left: 8px; /* Espacio limpio entre 'Filtros' y la píldora */
+    transition: all 0.2s ease;
+}
+
+#txtStatusFiltro:empty {
+    display: none;
+}
+
+/* 1. BARRA CONTENEDORA: Mantiene todo dentro de la pantalla */
+.search-and-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%; /* Garantiza que nunca sobrepase el ancho del navegador */
+    box-sizing: border-box;
+}
+
+/* 2. BUSCADOR: Permite que la barra de texto se encoja para dar sitio a los filtros */
+.search-container {
+    flex: 1 1 auto;
+    min-width: 140px; /* Ancho mínimo para que el buscador siga siendo cómodo */
+}
+
+.search-container input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 3. BOTÓN DE FILTROS Y DROPDOWN: Totalmente protegido ante desbordamientos */
+.filter-dropdown-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0; /* IMPIDE que el filtro sea empujado fuera de pantalla */
+}
+
+.btn-toggle-filtros {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1e293b;
+    white-space: nowrap; /* Mantiene todo en la misma línea */
+}
+
+.btn-filtros-title {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+/* 4. LA PÍLDORA (BADGE): Tamaño controlado e inline */
+#txtStatusFiltro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    padding: 0 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: #ffffff !important;
+    margin-left: 6px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+#txtStatusFiltro:empty {
+    display: none;
+}
+
+/* Colores */
+#txtStatusFiltro.status-badge-sold { background-color: #84cc16; }
+#txtStatusFiltro.status-badge-return { background-color: #000000; }
+#txtStatusFiltro.status-badge-dead { background-color: #8b1a1a; }
+#txtStatusFiltro.status-badge-stock { background-color: #64748b; }
+
+/* 5. ADAPTACIÓN PARA MÓVILES (Pantallas < 600px) */
+@media (max-width: 600px) {
+    .search-and-filter-bar {
+        gap: 6px;
+    }
+    
+    .btn-toggle-filtros {
+        padding: 4px 6px;
+    }
+
+    .btn-filtros-title {
+        font-size: 0.82rem;
+    }
+
+    #txtStatusFiltro {
+        height: 20px;
+        padding: 0 6px;
+        font-size: 0.68rem;
+    }
+}
+
+/* 1. La barra contenedora no separa los elementos con espacio vacío */
+.search-and-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinea hacia la izquierda de forma fluida */
+    gap: 12px; /* Espacio exacto y fijo entre el buscador y Filtros */
+    width: 100%;
+}
+
+/* 2. El buscador absorbe todo el espacio disponible */
+.search-container {
+    flex: 1 1 auto; /* Crece para rellenar la pantalla pero deja hueco para el botón */
+    width: 100%;
+}
+
+.search-container input {
+    width: 100%; /* El input llena su contenedor */
+}
+
+/* 3. El filtro se queda a una distancia fija a la derecha del input */
+.filter-dropdown-wrapper {
+    flex-shrink: 0; /* Impide que el botón de filtros se mueva o aplaste */
+}
+
+.btn-toggle-filtros {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1e293b;
+    white-space: nowrap;
+}
+
+/* BARRA CONTENEDORA: Centrada horizontalmente en la pantalla */
+.search-and-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra todo el bloque (Buscador + Filtros) */
+    gap: 12px;               /* Mantiene el filtro pegado al buscador */
+    width: 100%;
+    max-width: 700px;        /* Ancho máximo del grupo centrado */
+    margin: 0 auto;          /* Centra la barra completa en la página */
+}
+
+/* BUSCADOR: Absorbe el espacio dentro del límite centrado */
+.search-container {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.search-container input {
+    width: 100%;
+}
+
+/* FILTRO: Mantiene su tamaño sin estirarse ni separarse */
+.filter-dropdown-wrapper {
+    flex-shrink: 0;
+}
+
+.btn-toggle-filtros {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1e293b;
+    white-space: nowrap;
+}
+
+/* 1. Reduce la letra del texto que escribe el usuario */
+.search-input,
+#searchInput {
+    font-size: 0.70rem; /* Ajusta este valor (ej. 0.8rem, 13px, etc.) */
+}
+
+/* 2. Reduce la letra específicamente del texto placeholder */
+.search-input::placeholder {
+    font-size: 0.70rem; /* Debe coincidir o ser ligeramente más pequeño */
+}

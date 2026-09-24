@@ -519,6 +519,7 @@
             const searchInput = document.getElementById('searchInput');
 
             // Calcular las estadísticas globales totales una sola vez al cargar
+            /* ***Cambiada por tener el total en el index****
             const initGlobalStats = () => {
                 let totalStock = 0;
                 let totalSold = 0;
@@ -545,6 +546,14 @@
                 if (soldCountEl) soldCountEl.textContent = totalSold;
                 if (returnCountEl) returnCountEl.textContent = totalReturn;
                 if (deadCountEl) deadCountEl.textContent = totalDead;
+
+                localStorage.setItem('watchesCount', totalStock);
+            };
+            */
+            // Obtener stock total:
+            const initGlobalStats = () => {
+                const totalWatches = document.querySelectorAll('.sneaker-card').length;
+                localStorage.setItem('watchesCount', totalWatches);
             };
 
             // Actualizar solo los contadores individuales de cada categoría según la búsqueda

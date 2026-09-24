@@ -174,6 +174,7 @@
             const searchInput = document.getElementById('searchInput');
 
             // Calcular las estadísticas globales totales una sola vez al cargar
+            /* ***Cambiada por tener el total en el index****
             const initGlobalStats = () => {
                 let totalStock = 0;
                 let totalSold = 0;
@@ -201,7 +202,12 @@
                 if (returnCountEl) returnCountEl.textContent = totalReturn;
                 if (deadCountEl) deadCountEl.textContent = totalDead;
             };
-
+            */
+            // Obtener stock total:
+            const initGlobalStats = () => {
+                const totalCaps = document.querySelectorAll('.sneaker-card').length;
+                localStorage.setItem('capsCount', totalCaps);
+            };
             // Actualizar solo los contadores individuales de cada categoría según la búsqueda
             const updateCategoryCounts = () => {
                 sections.forEach(section => {

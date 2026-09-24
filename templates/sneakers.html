@@ -19,6 +19,8 @@
 
     <!-- Icono para iPhone/iPad (Apple Touch Icon) -->
     <link rel="apple-touch-icon" sizes="180x180" href="../imagenes/favicon/apple-touch-icon.png">
+
+
 </head>
 <body>
 
@@ -67,20 +69,52 @@
 
     </div>
 
-    <!-- Buscador en Vivo -->
-    <div class="search-container">
-        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por nombre o SKU (ej. Palomino, CZ0790)...">
+    <!-- CONTENEDOR DEL BUSCADOR Y FILTROS ALINEADOS -->
+    <div class="filter-toggle-container">
+        <div class="search-and-filter-bar">
+            
+            <!-- Único Buscador en Vivo (Con el ID principal) -->
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscador (Marca, Modelo, EJ: Palomino, CZ0790)...">
+            </div>
+
+            <!-- Botón de filtros alineado y pegado al buscador -->
+            <div class="filter-dropdown-wrapper">
+                <button id="btnFiltros" class="btn-toggle-filtros" type="button">
+                    <svg class="icon-sliders" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line>
+                        <line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line>
+                        <line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line>
+                        <line x1="17" y1="16" x2="23" y2="16"></line>
+                    </svg>
+                    <span class="btn-filtros-title">Filtros<span id="txtStatusFiltro"></span></span>
+                </button>
+
+                <!-- Menú desplegable -->
+                <div id="panelFiltros" class="filtros-panel-vertical">
+                    <div class="status-group-vertical">
+                        <button type="button" class="btn-status active" data-status="all">Todos</button>
+                        <button type="button" class="btn-status btn-stock" data-status="stock">Stock</button>
+                        <button type="button" class="btn-status btn-sold" data-status="sold">Sold</button>
+                        <button type="button" class="btn-status btn-return" data-status="return">Return</button>
+                        <button type="button" class="btn-status btn-dead" data-status="dead">Dead</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <!-- Contenido Principal -->
     <main class="collection-container">
 
-        <!-- CATEGORÍA: Jordan 1 OG -->
-        <section class="category-section">
-<div class="category-header">
-    <h2 class="category-title">Jordan 1 Retro OG (High/Low)</h2>
-    <span class="category-count">12</span>
-</div>
+    <!-- CATEGORÍA: Jordan 1 OG -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2 class="category-title">Jordan 1 Retro OG (High/Low)</h2>
+            <span class="category-count">12</span>
+        </div>
             <div class="sneakers-grid">
                 <div class="sneaker-card">
                     <img src="../imagenes/sns/CZ0790-102.png" alt="Jordan 1 Low Mocha" loading="lazy">
@@ -892,121 +926,203 @@
     <!-- Pie de página Base -->
     <footer>The Private Vault © 2026</footer>
 
-    <!-- Script de Interactividad -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Elementos de estadísticas globales (Fijas)
-            const stockCountEl = document.getElementById('stockCount');
-            const soldCountEl = document.getElementById('soldCount');
-            const returnCountEl = document.getElementById('returnCount');
-            const deadCountEl = document.getElementById('deadCount');
+<!-- Script de Interactividad -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Elementos de estadísticas globales (Fijas)
+        const stockCountEl = document.getElementById('stockCount');
+        const soldCountEl = document.getElementById('soldCount');
+        const returnCountEl = document.getElementById('returnCount');
+        const deadCountEl = document.getElementById('deadCount');
 
-            // 2. Elementos de las secciones y buscador
-            const sections = document.querySelectorAll('.category-section');
-            const sneakerCards = document.querySelectorAll('.sneaker-card');
-            const searchInput = document.getElementById('searchInput');
+        // 2. Elementos de las secciones, tarjetas y buscador
+        const sections = document.querySelectorAll('.category-section');
+        const sneakerCards = document.querySelectorAll('.sneaker-card');
+        const searchInput = document.getElementById('searchInput');
 
-            // Calcular las estadísticas globales totales una sola vez al cargar
-            const initGlobalStats = () => {
-                let totalStock = 0;
-                let totalSold = 0;
-                let totalReturn = 0;
-                let totalDead = 0;
+        // 3. Elementos de filtros desplegables
+        const btnFiltros = document.getElementById('btnFiltros');
+        const panelFiltros = document.getElementById('panelFiltros');
+        const txtStatusFiltro = document.getElementById('txtStatusFiltro');
+        const filterBtns = document.querySelectorAll('.status-group-vertical .btn-status, .btn-status');
 
-                sneakerCards.forEach(card => {
-                    const hasSold = card.querySelector('.badge-sold');
-                    const hasReturn = card.querySelector('.badge-return');
-                    const hasDead = card.querySelector('.badge-dead');
+        let currentStatus = 'all';
 
-                    if (hasSold) {
-                        totalSold++;
-                    } else if (hasReturn) {
-                        totalReturn++;
-                    } else if (hasDead) {
-                        totalDead++;
-                    } else {
-                        totalStock++;
-                    }
-                });
+        // --- ACTUALIZAR SOLO EL TEXTO ADICIONAL DEL FILTRO ---
+        const updateButtonText = () => {
+            if (!txtStatusFiltro) return;
 
-                if (stockCountEl) stockCountEl.textContent = totalStock;
-                if (soldCountEl) soldCountEl.textContent = totalSold;
-                if (returnCountEl) returnCountEl.textContent = totalReturn;
-                if (deadCountEl) deadCountEl.textContent = totalDead;
-            };
+            // Limpia clases anteriores de badges
+            txtStatusFiltro.className = '';
 
-            // Actualizar solo los contadores individuales de cada categoría según la búsqueda
-            const updateCategoryCounts = () => {
-                sections.forEach(section => {
-                    const visibleCards = section.querySelectorAll('.sneaker-card:not([style*="display: none"])');
-                    const countBadge = section.querySelector('.category-count');
-                    countBadge.textContent = visibleCards.length;
+            if (currentStatus === 'all') {
+                txtStatusFiltro.textContent = '';
+            } else {
+                // Asigna directamente el texto en mayúsculas sin ":" ni espacios
+                txtStatusFiltro.textContent = currentStatus.toUpperCase();
+                
+                // Aplica la clase de recuadro
+                txtStatusFiltro.classList.add(`status-badge-${currentStatus}`);
+            }
+        };
+                // --- CALCULAR ESTADÍSTICAS GLOBALES AL INICIAR ---
+        const initGlobalStats = () => {
+            let totalStock = 0;
+            let totalSold = 0;
+            let totalReturn = 0;
+            let totalDead = 0;
 
-                    if (visibleCards.length === 0) {
-                        section.style.display = 'none';
-                    } else {
-                        section.style.display = 'block';
-                    }
-                });
-            };
+            sneakerCards.forEach(card => {
+                const hasSold = card.querySelector('.badge-sold');
+                const hasReturn = card.querySelector('.badge-return');
+                const hasDead = card.querySelector('.badge-dead');
 
-            // Inicializar estadísticas fijas y contadores de categoría al iniciar
-            initGlobalStats();
-            updateCategoryCounts();
-
-            // Lógica del Buscador en Vivo
-            searchInput.addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase().trim();
-
-                sneakerCards.forEach(card => {
-                    const text = card.textContent.toLowerCase();
-                    if (text.includes(query)) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-
-                updateCategoryCounts(); // Esto actualiza solo los numeritos de las categorías y oculta secciones vacías, sin tocar las estadísticas de arriba.
-            });
-        });
-
-
-            document.addEventListener("DOMContentLoaded", () => {
-            const modal = document.getElementById("image-modal");
-            const modalImg = document.getElementById("expanded-img");
-            const closeBtn = document.querySelector(".modal-close");
-
-            // Selecciona todas las imágenes dentro de las tarjetas
-            document.addEventListener("click", (e) => {
-                if (e.target.matches(".sneaker-card img")) {
-                    modalImg.src = e.target.src;
-                    modalImg.alt = e.target.alt;
-                    modal.classList.add("show");
+                if (hasSold) {
+                    totalSold++;
+                } else if (hasReturn) {
+                    totalReturn++;
+                } else if (hasDead) {
+                    totalDead++;
+                } else {
+                    totalStock++;
                 }
             });
 
-            // Cerrar haciendo clic en la 'X'
+            if (stockCountEl) stockCountEl.textContent = totalStock;
+            if (soldCountEl) soldCountEl.textContent = totalSold;
+            if (returnCountEl) returnCountEl.textContent = totalReturn;
+            if (deadCountEl) deadCountEl.textContent = totalDead;
+
+            // Al terminar de contar en sneakers.html
+            localStorage.setItem('sneakersCount', totalStock); // O la variable que use tus sneakers en stock
+        };
+
+        // --- ACTUALIZAR CONTADORES DE CADA CATEGORÍA Y OCULTAR SECCIONES VACÍAS ---
+        const updateCategoryCounts = () => {
+            sections.forEach(section => {
+                const visibleCards = section.querySelectorAll('.sneaker-card:not([style*="display: none"])');
+                const countBadge = section.querySelector('.category-count');
+                if (countBadge) countBadge.textContent = visibleCards.length;
+
+                if (visibleCards.length === 0) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            });
+        };
+
+        // --- DETERMINAR EL ESTADO REAL DE UNA TARJETA ---
+        const getCardStatus = (card) => {
+            if (card.querySelector('.badge-sold')) return 'sold';
+            if (card.querySelector('.badge-return')) return 'return';
+            if (card.querySelector('.badge-dead')) return 'dead';
+            return 'stock';
+        };
+
+        // --- LÓGICA DE FILTRADO COMBINADA (BUSCADOR + FILTRO DE ESTADO) ---
+        const filterSneakers = () => {
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+            sneakerCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                const cardStatus = getCardStatus(card);
+
+                // Revisa texto del buscador
+                const matchesSearch = text.includes(query);
+
+                // Revisa estado del filtro seleccionado
+                const matchesStatus = (currentStatus === 'all') || (cardStatus === currentStatus);
+
+                // Solo muestra si coincide con la búsqueda Y con el estado seleccionado
+                if (matchesSearch && matchesStatus) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            updateCategoryCounts();
+        };
+
+        // Inicializar al cargar
+        initGlobalStats();
+        updateCategoryCounts();
+        updateButtonText();
+
+        // Escuchador para el buscador en tiempo real
+        if (searchInput) {
+            searchInput.addEventListener('input', filterSneakers);
+        }
+
+        // --- DESPLEGABLE DE FILTROS (Mostrar / Ocultar) ---
+        if (btnFiltros && panelFiltros) {
+            btnFiltros.addEventListener('click', (e) => {
+                e.stopPropagation();
+                panelFiltros.classList.toggle('activo');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!panelFiltros.contains(e.target) && !btnFiltros.contains(e.target)) {
+                    panelFiltros.classList.remove('activo');
+                }
+            });
+        }
+
+        // Escuchador de clics para las opciones de filtro (Todos, Stock, Sold, Return, Dead)
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                currentStatus = (this.getAttribute('data-status') || 'all').toLowerCase();
+                
+                // Actualiza solo el texto dinámico ": Estado" sin tocar el icono SVG
+                updateButtonText();
+
+                // Aplica el filtrado en vivo
+                filterSneakers();
+
+                if (panelFiltros) {
+                    panelFiltros.classList.remove('activo');
+                }
+            });
+        });
+
+        // --- MODAL DE IMÁGENES ---
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("expanded-img");
+        const closeBtn = document.querySelector(".modal-close");
+
+        document.addEventListener("click", (e) => {
+            if (e.target.matches(".sneaker-card img") && modalImg && modal) {
+                modalImg.src = e.target.src;
+                modalImg.alt = e.target.alt;
+                modal.classList.add("show");
+            }
+        });
+
+        if (closeBtn && modal) {
             closeBtn.addEventListener("click", () => {
                 modal.classList.remove("show");
             });
+        }
 
-            // Cerrar haciendo clic en cualquier parte fuera de la imagen
+        if (modal) {
             modal.addEventListener("click", (e) => {
                 if (e.target === modal || e.target === closeBtn) {
                     modal.classList.remove("show");
                 }
             });
+        }
 
-            // Cerrar también presionando la tecla 'ESC'
-            document.addEventListener("keydown", (e) => {
-                if (e.key === "Escape" && modal.classList.contains("show")) {
-                    modal.classList.remove("show");
-                }
-            });
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal && modal.classList.contains("show")) {
+                modal.classList.remove("show");
+            }
         });
-
-    </script>
+    });
+</script>
 
 <!-- Modal para ampliar la imagen -->
 <div id="image-modal" class="image-modal">

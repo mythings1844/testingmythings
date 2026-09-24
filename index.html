@@ -34,12 +34,12 @@
         <a href="templates/caps.html">Caps</a>
     </nav>
 
-    <div class="container">
-        <div class="stats">
-        <div class="card"><div class="num">🏷️ 36</div><div class="lbl">Stock Items</div></div>
-        <div class="card"><div class="num">👟 26</div><div class="lbl">Sneakers</div></div>
-        <div class="card"><div class="num">⌚ 4</div><div class="lbl">Watches</div></div>
-        <div class="card"><div class="num">🧢 6</div><div class="lbl">Caps</div></div>
+<div class="container">
+    <div class="stats">
+        <div class="card"><div class="num">🏷️ <span id="totalStock">0</span></div><div class="lbl">Stock Items</div></div>
+        <div class="card"><div class="num">👟 <span id="totalSneakers">0</span></div><div class="lbl">Sneakers</div></div>
+        <div class="card"><div class="num">⌚ <span id="totalWatches">0</span></div><div class="lbl">Watches</div></div>
+        <div class="card"><div class="num">🧢 <span id="totalCaps">0</span></div><div class="lbl">Caps</div></div>
     </div>
 
 <!-- BLOQUE PRINCIPAL: Categorías -->
@@ -202,6 +202,22 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Lee los datos guardados en el navegador
+        const sneakers = parseInt(localStorage.getItem('sneakersCount')) || 0;
+        const watches = parseInt(localStorage.getItem('watchesCount')) || 0;
+        const caps = parseInt(localStorage.getItem('capsCount')) || 0;
+
+        const total = sneakers + watches + caps;
+
+        document.getElementById('totalStock').textContent = total;
+        document.getElementById('totalSneakers').textContent = sneakers;
+        document.getElementById('totalWatches').textContent = watches;
+        document.getElementById('totalCaps').textContent = caps;
+    });
+</script>
 
     <!-- Pie de página Base -->
     <footer>The Private Vault © 2026</footer>
