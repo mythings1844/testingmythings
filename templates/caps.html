@@ -58,6 +58,7 @@
         <div class="sneakers-grid watches-grid">
             
             <div class="sneaker-card">
+                <span class="badge badge-dead">DEAD</span>
                 <img src="../imagenes/Caps/60422518.png" alt="LA Dodgers World Series" loading="lazy">
                 <div class="sneaker-info">
                     <hr class="card-divider">
@@ -205,8 +206,22 @@
             */
             // Obtener stock total:
             const initGlobalStats = () => {
-                const totalCaps = document.querySelectorAll('.sneaker-card').length;
-                localStorage.setItem('capsCount', totalCaps);
+                let totalStock = 0;
+                const cards = document.querySelectorAll('.sneaker-card');
+
+                cards.forEach(card => {
+                    const hasSold = card.querySelector('.badge-sold');
+                    const hasReturn = card.querySelector('.badge-return');
+                    const hasDead = card.querySelector('.badge-dead');
+
+                    // Solo suma si NO tiene ninguna marca de vendido, devuelto o muerto
+                    if (!hasSold && !hasReturn && !hasDead) {
+                        totalStock++;
+                    }
+                });
+
+                // Guarda el conteo de las gorras para que el Dashboard lo lea
+                localStorage.setItem('capsCount', totalStock);
             };
             // Actualizar solo los contadores individuales de cada categoría según la búsqueda
             const updateCategoryCounts = () => {
