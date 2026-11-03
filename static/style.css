@@ -1647,3 +1647,38 @@ footer {
     font-weight: 700;
     color: #4a5568;
 }
+
+/* Badge para artículos en venta */
+.badge.badge-sale {
+    background-color: #0284c7; /* Azul llamativo */
+    color: #ffffff;
+}
+
+/* 1. Estado por defecto (inactivo): se ve gris/claro igual que los demás */
+.btn-status.btn-sale {
+    /* Hereda el estilo gris/claro por defecto de .btn-status */
+}
+
+/* 2. Estado activo (cuando se hace clic): toma el color azul */
+.btn-status.btn-sale.active,
+.status-group-vertical .btn-status[data-status="sale"].active {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+}
+
+/* 3. Opcional: si quieres que al pasar el cursor (hover) también se note sutilmente o se ponga azul */
+.btn-status.btn-sale:hover {
+    background-color: #0284c7;
+    color: #ffffff;
+}
+
+/* Estilo para el recuadro de estado "SALE" junto al botón de Filtros */
+.status-badge-sale {
+    background-color: #0284c7;
+    color: #ffffff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}

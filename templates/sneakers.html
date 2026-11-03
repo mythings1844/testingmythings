@@ -99,6 +99,7 @@
                         <button type="button" class="btn-status btn-sold" data-status="sold">Sold</button>
                         <button type="button" class="btn-status btn-return" data-status="return">Return</button>
                         <button type="button" class="btn-status btn-dead" data-status="dead">Dead</button>
+                        <button type="button" class="btn-status btn-sale" data-status="sale">For Sale</button>
                     </div>
                 </div>
             </div>
@@ -157,6 +158,7 @@
                 </div>
 
                 <div class="sneaker-card">
+                    <span class="badge badge-sale">FOR SALE</span>
                     <img src="../imagenes/sns/CZ0790-106.png" alt="Jordan 1 Low Black Toe" loading="lazy">
                         <div class="sneaker-info">
                                     <hr class="card-divider">
@@ -326,6 +328,7 @@
                 </div>
 
                 <div class="sneaker-card">
+                    <span class="badge badge-sale">FOR SALE</span>
                     <img src="../imagenes/sns/DR9511-100.png" alt="Nike Dunk Low World Champs" loading="lazy">
                         <div class="sneaker-info">
                                     <hr class="card-divider">
@@ -336,6 +339,7 @@
                 </div>
 
                 <div class="sneaker-card">
+                    <span class="badge badge-sale">FOR SALE</span>
                     <img src="../imagenes/sns/DD3357-100.png" alt="Nike Dunk Low Halloween" loading="lazy">
                         <div class="sneaker-info">
                                     <hr class="card-divider">
@@ -980,7 +984,7 @@
                 txtStatusFiltro.textContent = '';
             } else {
                 // Asigna directamente el texto en mayúsculas sin ":" ni espacios
-                txtStatusFiltro.textContent = currentStatus.toUpperCase();
+                txtStatusFiltro.textContent = currentStatus === 'sale' ? 'FOR SALE' : currentStatus.toUpperCase();
                 
                 // Aplica la clase de recuadro
                 txtStatusFiltro.classList.add(`status-badge-${currentStatus}`);
@@ -1038,6 +1042,7 @@
             if (card.querySelector('.badge-sold')) return 'sold';
             if (card.querySelector('.badge-return')) return 'return';
             if (card.querySelector('.badge-dead')) return 'dead';
+            if (card.querySelector('.badge-sale')) return 'sale'; // <-- Añadido
             return 'stock';
         };
 
@@ -1052,8 +1057,15 @@
                 // Revisa texto del buscador
                 const matchesSearch = text.includes(query);
 
-                // Revisa estado del filtro seleccionado
-                const matchesStatus = (currentStatus === 'all') || (cardStatus === currentStatus);
+                // Revisa estado del filtro seleccionado (Stock incluye stock y sale)
+                let matchesStatus = false;
+                if (currentStatus === 'all') {
+                    matchesStatus = true;
+                } else if (currentStatus === 'stock') {
+                    matchesStatus = (cardStatus === 'stock' || cardStatus === 'sale');
+                } else {
+                    matchesStatus = (cardStatus === currentStatus);
+                }
 
                 // Solo muestra si coincide con la búsqueda Y con el estado seleccionado
                 if (matchesSearch && matchesStatus) {
