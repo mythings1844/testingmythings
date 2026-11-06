@@ -37,11 +37,72 @@
         <a href="caps.html" class="active">Caps</a>
     </nav>
 
+    <!-- Resumen de Estadísticas (Ordenado en Grid de 2 columnas en móviles como el Index) -->
+    <div class="stats-container" style="width: 100%; max-width: 900px; margin: 1rem auto; padding: 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;">
+        
+        <!-- STOCK -->
+        <div style="background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+            <div id="stockCount" style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">📦 STOCK</div>
+        </div>
 
+        <!-- TARJETA SOLD -->
+        <div style="position: relative; overflow: hidden; background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+            <span class="badge badge-sold">SOLD</span>
+            <div id="soldCount" style="font-size: 1.8rem; font-weight: 800; color: #84cc16; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">🏷️ SOLD</div>
+        </div>
 
-    <!-- Buscador en Vivo -->
-    <div class="search-container">
-        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscador (ej. Marca, equipo)...">
+        <!-- TARJETA RETURN -->
+        <div style="position: relative; overflow: hidden; background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+            <span class="badge badge-return">RETURN</span>
+            <div id="returnCount" style="font-size: 1.8rem; font-weight: 800; color: #000000; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">↩️ RETURN</div>
+        </div>
+        <!-- TARJETA DEAD -->
+        <div style="position: relative; overflow: hidden; background: #ffffff; border: 1px solid #c8c8c8; padding: 1rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+            <span class="badge badge-dead">DEAD</span>
+            <div id="deadCount" style="font-size: 1.8rem; font-weight: 800; color: #991b1b; margin-bottom: 0.2rem; line-height: 1.2;">0</div>
+            <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">💀 DEAD</div>
+        </div>
+
+    </div>
+
+    <!-- CONTENEDOR DEL BUSCADOR Y FILTROS ALINEADOS -->
+    <div class="filter-toggle-container">
+        <div class="search-and-filter-bar">
+            
+            <!-- Único Buscador en Vivo (Con el ID principal) -->
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscador (Marca, Modelo, EJ: Palomino, CZ0790)...">
+            </div>
+
+            <!-- Botón de filtros alineado y pegado al buscador -->
+            <div class="filter-dropdown-wrapper">
+                <button id="btnFiltros" class="btn-toggle-filtros" type="button">
+                    <svg class="icon-sliders" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line>
+                        <line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line>
+                        <line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line>
+                        <line x1="17" y1="16" x2="23" y2="16"></line>
+                    </svg>
+                    <span class="btn-filtros-title">Filtros<span id="txtStatusFiltro"></span></span>
+                </button>
+
+                <!-- Menú desplegable -->
+                <div id="panelFiltros" class="filtros-panel-vertical">
+                    <div class="status-group-vertical">
+                        <button type="button" class="btn-status active" data-status="all">Todos</button>
+                        <button type="button" class="btn-status btn-stock" data-status="stock">Stock</button>
+                        <button type="button" class="btn-status btn-sold" data-status="sold">Sold</button>
+                        <button type="button" class="btn-status btn-return" data-status="return">Return</button>
+                        <button type="button" class="btn-status btn-dead" data-status="dead">Dead</button>
+                        <button type="button" class="btn-status btn-sale" data-status="sale">For Sale</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Contenido Principal -->
@@ -185,25 +246,53 @@
     <!-- Script de Interactividad -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Elementos de estadísticas globales (Fijas)
+            // ==========================================
+            // 1. SELECCIÓN DE ELEMENTOS DOM
+            // ==========================================
             const stockCountEl = document.getElementById('stockCount');
             const soldCountEl = document.getElementById('soldCount');
             const returnCountEl = document.getElementById('returnCount');
             const deadCountEl = document.getElementById('deadCount');
 
-            // 2. Elementos de las secciones y buscador
             const sections = document.querySelectorAll('.category-section');
             const sneakerCards = document.querySelectorAll('.sneaker-card');
             const searchInput = document.getElementById('searchInput');
 
-            // Calcular las estadísticas globales totales una sola vez al cargar
-            /* ***Cambiada por tener el total en el index****
+            // Elementos del menú desplegable de filtros
+            const btnFiltros = document.getElementById('btnFiltros');
+            const panelFiltros = document.getElementById('panelFiltros');
+            const txtStatusFiltro = document.getElementById('txtStatusFiltro');
+            const filterBtns = document.querySelectorAll('.status-group-vertical .btn-status, .btn-status');
+
+            let currentStatus = 'all'; // Estado inicial del filtro (muestra todo)
+
+            // ==========================================
+            // 2. ACTUALIZAR TEXTO Y ESTILO DEL FILTRO SUPERIOR
+            // ==========================================
+            const updateButtonText = () => {
+                if (!txtStatusFiltro) return;
+                txtStatusFiltro.className = '';
+
+                if (currentStatus === 'all') {
+                    txtStatusFiltro.textContent = '';
+                } else {
+                    // Muestra 'FOR SALE' si es sale, de lo contrario muestra el texto en mayúsculas
+                    txtStatusFiltro.textContent = currentStatus === 'sale' ? 'FOR SALE' : currentStatus.toUpperCase();
+                    // Aplica la clase del recuadro con su respectivo color
+                    txtStatusFiltro.classList.add(`status-badge-${currentStatus}`);
+                }
+            };
+
+            // ==========================================
+            // 3. CALCULAR Y RELLENAR LAS ESTADÍSTICAS GLOBALES
+            // ==========================================
             const initGlobalStats = () => {
                 let totalStock = 0;
                 let totalSold = 0;
                 let totalReturn = 0;
                 let totalDead = 0;
 
+                // Recorre todas las tarjetas para contar cuántas hay de cada estado
                 sneakerCards.forEach(card => {
                     const hasSold = card.querySelector('.badge-sold');
                     const hasReturn = card.querySelector('.badge-return');
@@ -216,42 +305,30 @@
                     } else if (hasDead) {
                         totalDead++;
                     } else {
-                        totalStock++;
+                        totalStock++; // Incluye stock normal y for sale
                     }
                 });
 
+                // Rellena los números en las tarjetas superiores de la interfaz
                 if (stockCountEl) stockCountEl.textContent = totalStock;
                 if (soldCountEl) soldCountEl.textContent = totalSold;
                 if (returnCountEl) returnCountEl.textContent = totalReturn;
                 if (deadCountEl) deadCountEl.textContent = totalDead;
-            };
-            */
-            // Obtener stock total:
-            const initGlobalStats = () => {
-                let totalStock = 0;
-                const cards = document.querySelectorAll('.sneaker-card');
 
-                cards.forEach(card => {
-                    const hasSold = card.querySelector('.badge-sold');
-                    const hasReturn = card.querySelector('.badge-return');
-                    const hasDead = card.querySelector('.badge-dead');
-
-                    // Solo suma si NO tiene ninguna marca de vendido, devuelto o muerto
-                    if (!hasSold && !hasReturn && !hasDead) {
-                        totalStock++;
-                    }
-                });
-
-                // Guarda el conteo de las gorras para que el Dashboard lo lea
+                // Guarda el total de stock para que otros archivos (como el Dashboard) lo lean
                 localStorage.setItem('capsCount', totalStock);
             };
-            // Actualizar solo los contadores individuales de cada categoría según la búsqueda
+
+            // ==========================================
+            // 4. ACTUALIZAR CONTADORES Y OCULTAR SECCIONES VACÍAS
+            // ==========================================
             const updateCategoryCounts = () => {
                 sections.forEach(section => {
                     const visibleCards = section.querySelectorAll('.sneaker-card:not([style*="display: none"])');
                     const countBadge = section.querySelector('.category-count');
-                    countBadge.textContent = visibleCards.length;
+                    if (countBadge) countBadge.textContent = visibleCards.length;
 
+                    // Oculta la sección completa si no quedan tarjetas visibles tras filtrar
                     if (visibleCards.length === 0) {
                         section.style.display = 'none';
                     } else {
@@ -260,61 +337,130 @@
                 });
             };
 
-            // Inicializar estadísticas fijas y contadores de categoría al iniciar
-            initGlobalStats();
-            updateCategoryCounts();
+            // ==========================================
+            // 5. DETERMINAR EL ESTADO REAL DE UNA TARJETA
+            // ==========================================
+            const getCardStatus = (card) => {
+                if (card.querySelector('.badge-sold')) return 'sold';
+                if (card.querySelector('.badge-return')) return 'return';
+                if (card.querySelector('.badge-dead')) return 'dead';
+                if (card.querySelector('.badge-sale')) return 'sale';
+                return 'stock';
+            };
 
-            // Lógica del Buscador en Vivo
-            searchInput.addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase().trim();
+            // ==========================================
+            // 6. LÓGICA DE FILTRADO (BUSCADOR + ESTADO)
+            // ==========================================
+            const filterCaps = () => {
+                const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
                 sneakerCards.forEach(card => {
                     const text = card.textContent.toLowerCase();
-                    if (text.includes(query)) {
+                    const cardStatus = getCardStatus(card);
+
+                    const matchesSearch = text.includes(query);
+
+                    // Regla lógica: Si se clica "Stock", muestra tanto stock como for sale
+                    let matchesStatus = false;
+                    if (currentStatus === 'all') {
+                        matchesStatus = true;
+                    } else if (currentStatus === 'stock') {
+                        matchesStatus = (cardStatus === 'stock' || cardStatus === 'sale');
+                    } else {
+                        matchesStatus = (cardStatus === currentStatus);
+                    }
+
+                    // Muestra u oculta la tarjeta según el resultado de la búsqueda y el filtro
+                    if (matchesSearch && matchesStatus) {
                         card.style.display = 'flex';
                     } else {
                         card.style.display = 'none';
                     }
                 });
 
-                updateCategoryCounts(); // Esto actualiza solo los numeritos de las categorías y oculta secciones vacías, sin tocar las estadísticas de arriba.
-            });
-        });
+                updateCategoryCounts();
+            };
 
-            document.addEventListener("DOMContentLoaded", () => {
+            // Inicialización al cargar la página
+            initGlobalStats();
+            updateCategoryCounts();
+            updateButtonText();
+
+            // Evento para el buscador en tiempo real
+            if (searchInput) {
+                searchInput.addEventListener('input', filterCaps);
+            }
+
+            // ==========================================
+            // 7. CONTROL DEL MENÚ DESPLEGABLE DE FILTROS
+            // ==========================================
+            if (btnFiltros && panelFiltros) {
+                btnFiltros.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    panelFiltros.classList.toggle('activo');
+                });
+
+                // Cierra el panel si se hace clic fuera de él
+                document.addEventListener('click', (e) => {
+                    if (!panelFiltros.contains(e.target) && !btnFiltros.contains(e.target)) {
+                        panelFiltros.classList.remove('activo');
+                    }
+                });
+            }
+
+            // Eventos de clic para los botones de opciones de filtro
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    currentStatus = (this.getAttribute('data-status') || 'all').toLowerCase();
+                    
+                    updateButtonText();
+                    filterCaps();
+
+                    if (panelFiltros) {
+                        panelFiltros.classList.remove('activo');
+                    }
+                });
+            });
+
+            // ==========================================
+            // 8. MODAL DE AMPLIACIÓN DE IMÁGENES
+            // ==========================================
             const modal = document.getElementById("image-modal");
             const modalImg = document.getElementById("expanded-img");
             const closeBtn = document.querySelector(".modal-close");
 
-            // Selecciona todas las imágenes dentro de las tarjetas
             document.addEventListener("click", (e) => {
-                if (e.target.matches(".sneaker-card img")) {
+                if (e.target.matches(".sneaker-card img") && modalImg && modal) {
                     modalImg.src = e.target.src;
                     modalImg.alt = e.target.alt;
                     modal.classList.add("show");
                 }
             });
 
-            // Cerrar haciendo clic en la 'X'
-            closeBtn.addEventListener("click", () => {
-                modal.classList.remove("show");
-            });
-
-            // Cerrar haciendo clic en cualquier parte fuera de la imagen
-            modal.addEventListener("click", (e) => {
-                if (e.target === modal || e.target === closeBtn) {
+            if (closeBtn && modal) {
+                closeBtn.addEventListener("click", () => {
                     modal.classList.remove("show");
-                }
-            });
+                });
+            }
 
-            // Cerrar también presionando la tecla 'ESC'
+            if (modal) {
+                modal.addEventListener("click", (e) => {
+                    if (e.target === modal || e.target === closeBtn) {
+                        modal.classList.remove("show");
+                    }
+                });
+            }
+
+            // Cerrar modal presionando la tecla ESC
             document.addEventListener("keydown", (e) => {
-                if (e.key === "Escape" && modal.classList.contains("show")) {
+                if (e.key === "Escape" && modal && modal.classList.contains("show")) {
                     modal.classList.remove("show");
                 }
             });
         });
-
     </script>
 
 <!-- Modal para ampliar la imagen -->

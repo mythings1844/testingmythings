@@ -1239,7 +1239,9 @@
     <!-- Script de Interactividad -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Elementos de estadísticas globales (Fijas)
+            // ==========================================
+            // 1. SELECCIÓN DE ELEMENTOS DOM (Estadísticas y Buscador)
+            // ==========================================
             const stockCountEl = document.getElementById('stockCount');
             const soldCountEl = document.getElementById('soldCount');
             const returnCountEl = document.getElementById('returnCount');
@@ -1258,19 +1260,21 @@
 
             let currentStatus = 'all';
 
-            // --- DESPLEGABLE DE FILTROS (Mostrar / Ocultar) ---
+            // ==========================================
+            // 4. CONTROL DEL MENÚ DESPLEGABLE DE FILTROS (Mostrar / Ocultar)
+            // ==========================================
             if (btnFiltros && panelFiltros) {
-            btnFiltros.addEventListener('click', (e) => {
-                e.stopPropagation();
-                panelFiltros.classList.toggle('activo');
-            });
+                btnFiltros.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    panelFiltros.classList.toggle('activo');
+                });
 
-            document.addEventListener('click', (e) => {
-                if (!panelFiltros.contains(e.target) && !btnFiltros.contains(e.target)) {
-                    panelFiltros.classList.remove('activo');
-                }
-            });
-        }
+                document.addEventListener('click', (e) => {
+                    if (!panelFiltros.contains(e.target) && !btnFiltros.contains(e.target)) {
+                        panelFiltros.classList.remove('activo');
+                    }
+                });
+            }
 
             // Escuchador de clics para las opciones de filtro (Todos, Stock, Sold, Return, Dead)
             filterBtns.forEach(btn => {
@@ -1292,7 +1296,9 @@
                 });
             });
 
-            // --- ACTUALIZAR SOLO EL TEXTO ADICIONAL DEL FILTRO ---
+            // ==========================================
+            // 5. ACTUALIZAR TEXTO Y ESTILO DEL FILTRO SUPERIOR
+            // ==========================================
             const updateButtonText = () => {
                 if (!txtStatusFiltro) return;
 
@@ -1310,7 +1316,9 @@
                 }
             };
 
-            // --- LÓGICA DE FILTRADO COMBINADA (BUSCADOR + FILTRO DE ESTADO) ---
+            // ==========================================
+            // 6. LÓGICA DE FILTRADO COMBINADA (BUSCADOR + FILTRO DE ESTADO)
+            // ==========================================
             const filterSneakers = () => {
                 const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
@@ -1335,38 +1343,40 @@
                 updateCategoryCounts();
             };
                 // Calcular las estadísticas globales totales una sola vez al cargar
-            /* ***Cambiada por tener el total en el index****
-            const initGlobalStats = () => {
-                let totalStock = 0;
-                let totalSold = 0;
-                let totalReturn = 0;
-                let totalDead = 0;
+                /* ***Cambiada por tener el total en el index****
+                const initGlobalStats = () => {
+                    let totalStock = 0;
+                    let totalSold = 0;
+                    let totalReturn = 0;
+                    let totalDead = 0;
 
-                sneakerCards.forEach(card => {
-                    const hasSold = card.querySelector('.badge-sold');
-                    const hasReturn = card.querySelector('.badge-return');
-                    const hasDead = card.querySelector('.badge-dead');
+                    sneakerCards.forEach(card => {
+                        const hasSold = card.querySelector('.badge-sold');
+                        const hasReturn = card.querySelector('.badge-return');
+                        const hasDead = card.querySelector('.badge-dead');
 
-                    if (hasSold) {
-                        totalSold++;
-                    } else if (hasReturn) {
-                        totalReturn++;
-                    } else if (hasDead) {
-                        totalDead++;
-                    } else {
-                        totalStock++;
-                    }
-                });
+                        if (hasSold) {
+                            totalSold++;
+                        } else if (hasReturn) {
+                            totalReturn++;
+                        } else if (hasDead) {
+                            totalDead++;
+                        } else {
+                            totalStock++;
+                        }
+                    });
 
-                if (stockCountEl) stockCountEl.textContent = totalStock;
-                if (soldCountEl) soldCountEl.textContent = totalSold;
-                if (returnCountEl) returnCountEl.textContent = totalReturn;
-                if (deadCountEl) deadCountEl.textContent = totalDead;
+                    if (stockCountEl) stockCountEl.textContent = totalStock;
+                    if (soldCountEl) soldCountEl.textContent = totalSold;
+                    if (returnCountEl) returnCountEl.textContent = totalReturn;
+                    if (deadCountEl) deadCountEl.textContent = totalDead;
 
-                localStorage.setItem('watchesCount', totalStock);
-            };
-            */
-            // --- CALCULAR ESTADÍSTICAS GLOBALES AL INICIAR ---
+                    localStorage.setItem('watchesCount', totalStock);
+                };
+                */
+                // ==========================================
+                // 7. CALCULAR Y RELLENAR LAS ESTADÍSTICAS GLOBALES
+                // ==========================================
             const initGlobalStats = () => {
                 let totalStock = 0;
                 let totalSold = 0;
@@ -1398,7 +1408,9 @@
                 localStorage.setItem('watchesCount', totalStock); // O la variable que use tus sneakers en stock
             };
 
-            // --- DETERMINAR EL ESTADO REAL DE UNA TARJETA ---
+            // ==========================================
+            // 8. DETERMINAR EL ESTADO REAL DE UNA TARJETA
+            // ==========================================
             const getCardStatus = (card) => {
                 if (card.querySelector('.badge-sold')) return 'sold';
                 if (card.querySelector('.badge-return')) return 'return';
@@ -1406,7 +1418,9 @@
                 return 'stock';
             };
 
-            // Actualizar solo los contadores individuales de cada categoría según la búsqueda
+            // ==========================================
+            // 9. ACTUALIZAR CONTADORES DE CADA CATEGORÍA Y OCULTAR SECCIONES VACÍAS
+            // ==========================================
             const updateCategoryCounts = () => {
                 sections.forEach(section => {
                     const visibleCards = section.querySelectorAll('.sneaker-card:not([style*="display: none"])');
@@ -1425,7 +1439,9 @@
             initGlobalStats();
             updateCategoryCounts();
 
-            // Lógica del Buscador en Vivo
+            // ==========================================
+            // 10. LÓGICA DEL BUSCADOR EN VIVO
+            // ==========================================
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value.toLowerCase().trim();
 
@@ -1442,6 +1458,9 @@
             });
         });
 
+            // ==========================================
+            // 11. MODAL DE AMPLIACIÓN DE IMÁGENES
+            // ==========================================
             document.addEventListener("DOMContentLoaded", () => {
             const modal = document.getElementById("image-modal");
             const modalImg = document.getElementById("expanded-img");
@@ -1475,7 +1494,6 @@
                 }
             });
         });
-
     </script>
 
 <!-- Modal para ampliar la imagen -->
